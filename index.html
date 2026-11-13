@@ -207,7 +207,7 @@
   <canvas id="tv-static-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-50 opacity-0 transition-opacity duration-75"></canvas>
 
   <!-- ========================================================================
-       NOTIFICAÇÃO TOAST CUSTOMIZADA (Substitui qualquer alert())
+       NOTIFICAÇÃO TOAST CUSTOMIZADA
        ======================================================================== -->
   <div id="toast-banner" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-300 translate-y-[-12px] w-[92%] max-w-sm">
     <div class="bg-graphite-dark/95 backdrop-blur-md border border-gold-mid/60 text-ice px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3">
@@ -262,7 +262,6 @@
         <div class="flex flex-col sm:flex-row gap-3 items-stretch">
           <!-- Tubo de Imagem CRT -->
           <div class="crt-screen crt-scanlines flex-1 rounded-[20px] border-2 border-black/80 p-5 sm:p-6 flex flex-col items-center justify-center text-center min-h-[215px] relative overflow-hidden">
-            <!-- Brilho de vidro CRT -->
             <div class="absolute -top-12 -left-12 w-40 h-40 bg-white/5 rounded-full blur-xl pointer-events-none"></div>
 
             <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-marsala/80 border border-gold-mid/40 text-[10px] tracking-[0.2em] uppercase text-gold-light mb-3">
@@ -293,20 +292,17 @@
             </p>
           </div>
 
-          <!-- Painel Lateral de Seletor de Canais (Estilo TV Clássica) -->
+          <!-- Painel Lateral de Seletor de Canais -->
           <div class="flex sm:flex-col justify-between items-center bg-graphite-dark/90 border border-gold-mid/25 rounded-2xl px-3 py-2 sm:py-4 sm:w-16 shrink-0">
-            <!-- Seletor Rotativo Superior -->
             <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-graphite-dark to-graphite-light border-2 border-gold-mid/50 flex items-center justify-center shadow-inner">
               <div class="w-1 h-4 bg-gold-light rounded-full rotate-45"></div>
             </div>
-            <!-- Grade de Alto-Falante -->
             <div class="flex sm:flex-col gap-1 my-1">
               <span class="w-1.5 h-1.5 rounded-full bg-black/80 border border-white/10"></span>
               <span class="w-1.5 h-1.5 rounded-full bg-black/80 border border-white/10"></span>
               <span class="w-1.5 h-1.5 rounded-full bg-black/80 border border-white/10"></span>
               <span class="w-1.5 h-1.5 rounded-full bg-black/80 border border-white/10"></span>
             </div>
-            <!-- Seletor Rotativo Inferior -->
             <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-graphite-dark to-graphite-light border-2 border-gold-mid/50 flex items-center justify-center shadow-inner">
               <div class="w-1 h-4 bg-gold-mid rounded-full -rotate-12"></div>
             </div>
@@ -372,11 +368,9 @@
           class="p-2.5 rounded-xl bg-graphite-dark border border-gold-mid/30 text-gold-light hover:bg-graphite-light transition cursor-pointer"
           aria-label="Alternar som de troca de canal"
         >
-          <!-- Ícone de Som Ativo -->
           <svg id="icon-sound-on" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M11 5L6 9H2v6h4l5 4V5zM15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14" />
           </svg>
-          <!-- Ícone de Som Mudo -->
           <svg id="icon-sound-off" class="w-4 h-4 hidden text-graphite-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6" />
           </svg>
@@ -419,7 +413,7 @@
         </div>
       </div>
 
-      <!-- Moldura Interna da Tela CRT do Capítulo (Suporta deslizar / swipe no celular) -->
+      <!-- Moldura Interna da Tela CRT do Capítulo -->
       <article
         id="chapter-card"
         class="crt-screen crt-scanlines gold-border-card rounded-b-3xl p-4 sm:p-5 flex-1 flex flex-col justify-between relative overflow-hidden"
@@ -428,7 +422,7 @@
           <!-- Emblema / Logo Oficial da Novela -->
           <div class="flex flex-col items-center text-center pt-1">
             <div id="novela-logo-container" class="w-full max-w-[270px] min-h-[104px] flex items-center justify-center mb-2.5">
-              <!-- A logo PNG (1.png a 17.png) ou o emblema SVG reserva é injetado dinamicamente via JS -->
+              <!-- Logo PNG (1.png a 17.png) ou emblema SVG -->
             </div>
 
             <!-- Tag de Estilo de Dança -->
@@ -485,18 +479,17 @@
               </span>
             </div>
             <div id="chapter-cast-list" class="flex flex-wrap gap-1.5">
-              <!-- Badges do elenco injetadas via JS -->
+              <!-- Badges do elenco -->
             </div>
           </div>
         </div>
 
         <!-- Bloco Chamada de TV: "Cenas do Próximo Capítulo..." -->
         <div id="next-chapter-teaser" class="relative z-20 mt-5 pt-3.5 border-t border-gold-mid/25">
-          <!-- Conteúdo dinâmico da chamada do próximo capítulo -->
+          <!-- Chamada do próximo capítulo -->
         </div>
       </article>
 
-      <!-- Dica sutil de navegação por gesto -->
       <p class="text-center text-[10px] text-graphite-muted mt-2 tracking-wide">
         Deslize a tela para o lado ou use o controle remoto abaixo para trocar de canal
       </p>
@@ -515,7 +508,7 @@
           FICHA TÉCNICA
         </h2>
         <p class="text-xs text-ice/80 mt-1 max-w-xs mx-auto leading-relaxed">
-          Conheça a , os coreógrafos e todo o elenco que dá vida às novelas no palco.
+          Conheça a direção, os coreógrafos e todo o elenco que dá vida às novelas no palco.
         </p>
 
         <button
@@ -527,18 +520,21 @@
         </button>
       </div>
 
-      <!-- Seção 1: Direção & Coreógrafos -->
+      <!-- Seção 1: Direção & Coreógrafos (Clicáveis para abrir foto + Instagram) -->
       <div class="bg-graphite-dark/90 gold-border-card rounded-3xl p-4 sm:p-5">
-        <div class="flex items-center justify-between mb-3.5">
+        <div class="flex items-center justify-between mb-1">
           <div>
             <p class="text-[10px] uppercase tracking-[0.2em] text-gold-light font-bold">Equipe Criativa</p>
             <h3 class="font-cinzel text-lg font-bold text-ice">Direção & Coreógrafos</h3>
           </div>
           <span class="text-lg">🎬</span>
         </div>
+        <p class="text-[11px] text-graphite-muted mb-3.5">
+          Toque na foto para ampliar e acessar o Instagram
+        </p>
 
         <div id="choreographers-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-          <!-- Cards de coreógrafos injetados via JS (com espaço pronto para foto real) -->
+          <!-- Cards de coreógrafos injetados via JS -->
         </div>
       </div>
 
@@ -577,7 +573,7 @@
         </div>
 
         <div id="full-cast-list" class="space-y-2.5">
-          <!-- Lista de bailarinos com capítulos clicáveis injetada via JS -->
+          <!-- Lista de bailarinos -->
         </div>
       </div>
 
@@ -647,7 +643,6 @@
     class="hidden fixed bottom-0 left-0 right-0 z-30 px-2.5 pb-2.5 pt-1.5 pointer-events-none"
   >
     <div class="max-w-lg mx-auto bg-gradient-to-b from-graphite-light/95 to-graphite-dark/98 backdrop-blur-lg border border-gold-mid/45 rounded-3xl p-2 shadow-remote pointer-events-auto">
-      <!-- Indicador LED infravermelho do Controle Remoto -->
       <div class="flex items-center justify-between px-3 pb-1.5">
         <span class="text-[9px] font-cinzel tracking-[0.25em] uppercase text-graphite-muted font-bold">
           Controle Remoto • No Compasso TV
@@ -655,9 +650,7 @@
         <span id="remote-led" class="w-2 h-2 rounded-full bg-red-800 transition-colors duration-100" title="Sinal IR"></span>
       </div>
 
-      <!-- Grade dos 4 Botões Principais -->
       <div class="grid grid-cols-4 gap-1.5">
-        <!-- Botão 1: Capítulo Anterior -->
         <button
           id="btn-prev-chapter"
           type="button"
@@ -667,7 +660,6 @@
           <span class="text-[10px] sm:text-[11px] font-bold tracking-tight">Cap. Ant.</span>
         </button>
 
-        <!-- Botão 2: Grade de Canais (1-17) -->
         <button
           id="btn-open-guide"
           type="button"
@@ -677,7 +669,6 @@
           <span class="text-[10px] sm:text-[11px] font-bold tracking-tight">Grade 1-17</span>
         </button>
 
-        <!-- Botão 3: Ficha Técnica -->
         <button
           id="btn-toggle-credits"
           type="button"
@@ -687,7 +678,6 @@
           <span id="remote-credits-label" class="text-[10px] sm:text-[11px] font-bold tracking-tight">Ficha Téc.</span>
         </button>
 
-        <!-- Botão 4: Próximo Capítulo -->
         <button
           id="btn-next-chapter"
           type="button"
@@ -711,7 +701,6 @@
     aria-labelledby="guide-modal-title"
   >
     <div class="bg-gradient-to-b from-graphite-dark to-marsala-deep border-t-2 sm:border-2 border-gold-mid/50 w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[85dvh] flex flex-col shadow-2xl overflow-hidden">
-      <!-- Cabeçalho do Guia -->
       <div class="px-5 py-4 border-b border-gold-mid/25 flex items-center justify-between shrink-0 bg-graphite-dark">
         <div>
           <p class="text-[10px] uppercase tracking-[0.22em] text-gold-light font-bold">
@@ -731,7 +720,6 @@
         </button>
       </div>
 
-      <!-- Lista / Grid Numerado dos 17 Capítulos -->
       <div id="channel-guide-list" class="p-4 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 gap-2.5">
         <!-- Itens 01 a 17 gerados via JS -->
       </div>
@@ -739,7 +727,57 @@
   </div>
 
   <!-- ========================================================================
-       JAVASCRIPT — DADOS DOS 17 CAPÍTULOS, SINTONIA CRT, ÁUDIO & NAVEGAÇÃO
+       5. MODAL LIGHTBOX DA FOTO DO COREÓGRAFO + INSTAGRAM NA BASE DA IMAGEM
+       ======================================================================== -->
+  <div
+    id="choreographer-modal"
+    class="hidden fixed inset-0 z-50 bg-black/88 backdrop-blur-md flex items-center justify-center p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-choreographer-title"
+  >
+    <div class="relative w-full max-w-sm rounded-3xl overflow-hidden border-2 border-gold-mid/65 bg-graphite-dark shadow-2xl animate-channel-in">
+      <!-- Botão Fechar no canto superior direito -->
+      <button
+        id="btn-close-choreographer"
+        type="button"
+        class="absolute top-3 right-3 z-30 w-9 h-9 rounded-full bg-graphite-dark/85 backdrop-blur-sm border border-gold-mid/50 text-ice hover:text-gold-light flex items-center justify-center shadow-lg cursor-pointer"
+        aria-label="Fechar foto"
+      >
+        ✕
+      </button>
+
+      <!-- Área da Imagem Ampliada com Barra Inferior do Instagram -->
+      <div class="relative w-full aspect-[4/5] bg-gradient-to-b from-marsala via-marsala-dark to-graphite-dark flex items-center justify-center overflow-hidden">
+        <div id="modal-choreographer-media" class="w-full h-full flex items-center justify-center">
+          <!-- Foto real ou monograma injetado via JS -->
+        </div>
+
+        <!-- Degradê escuro + Link do Instagram na parte inferior da imagem -->
+        <div class="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black via-black/90 to-transparent pt-14 pb-4 px-4 text-center">
+          <p id="modal-choreographer-role" class="text-[11px] uppercase tracking-[0.18em] text-gold-light font-semibold mb-2">
+            Coreógrafo
+          </p>
+          <a
+            id="modal-choreographer-ig-link"
+            href="https://www.instagram.com/nocompasso.acre/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="gold-foil-btn w-full py-2.5 px-4 rounded-2xl text-xs sm:text-sm font-extrabold inline-flex items-center justify-center gap-2 shadow-lg"
+          >
+            <!-- Ícone oficial do Instagram -->
+            <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <span id="modal-choreographer-title">Instagram (Nome)</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       JAVASCRIPT — DADOS DOS 17 CAPÍTULOS, COREÓGRAFOS, SINTONIA & NAVEGAÇÃO
        ======================================================================== -->
   <script>
     /**
@@ -1031,57 +1069,67 @@
 
     /**
      * ==========================================================================
-     * 2. DIREÇÃO & COREÓGRAFOS (PRONTO PARA INSERIR FOTOS REAIS)
+     * 2. DIREÇÃO & COREÓGRAFOS (ADICIONE A FOTO E O LINK DO INSTAGRAM AQUI)
      * ==========================================================================
+     * - photoUrl: caminho da foto no GitHub (ex: "./andre.jpg")
+     * - instagramUrl: link direto do perfil no Instagram (ex: "https://www.instagram.com/usuario/")
      */
     const CHOREOGRAPHERS = [
       {
         name: "Direção Geral",
         role: "No Compasso Studio",
         initials: "NC",
-        photoUrl: ""
+        photoUrl: "",
+        instagramUrl: "https://www.instagram.com/nocompasso.acre/"
       },
       {
         name: "André Silva",
         role: "Coreógrafo • Bolero",
         initials: "AS",
-        photoUrl: ""
+        photoUrl: "",
+        instagramUrl: "https://www.instagram.com/nocompasso.acre/"
       },
       {
         name: "Fabiano Silva",
         role: "Coreógrafo • Bachata & Forró",
         initials: "FS",
-        photoUrl: ""
+        photoUrl: "",
+        instagramUrl: "https://www.instagram.com/nocompasso.acre/"
       },
       {
         name: "Jack Silva",
         role: "Coreógrafa • Lambada",
         initials: "JS",
-        photoUrl: ""
+        photoUrl: "",
+        instagramUrl: "https://www.instagram.com/nocompasso.acre/"
       },
       {
         name: "Jake Bezerra",
         role: "Coreógrafa • Salsa, Samba & West",
         initials: "JB",
-        photoUrl: ""
+        photoUrl: "",
+        instagramUrl: "https://www.instagram.com/nocompasso.acre/"
       },
       {
         name: "Victor e Luana",
         role: "Coreógrafos • Forró",
         initials: "VL",
-        photoUrl: ""
+        photoUrl: "",
+        instagramUrl: "https://www.instagram.com/nocompasso.acre/"
       },
       {
         name: "Equipe Ballet & Jazz",
         role: "Coreografia • Clássico & Jazz",
         initials: "BJ",
-        photoUrl: ""
+        photoUrl: "",
+        instagramUrl: "https://www.instagram.com/nocompasso.acre/"
       },
       {
         name: "Equipe Dança do Ventre",
         role: "Coreografia • Danças Árabes",
         initials: "DV",
-        photoUrl: ""
+        photoUrl: "",
+        instagramUrl: "https://www.instagram.com/nocompasso.acre/"
       }
     ];
 
@@ -1214,7 +1262,7 @@
      */
     const state = {
       currentIndex: 0,
-      activeView: "chapters", // "chapters" | "credits"
+      activeView: "chapters",
       soundEnabled: true,
       castFilter: "all",
       castSearch: ""
@@ -1234,9 +1282,6 @@
       }
     }
 
-    /**
-     * Gera um clique sutil de controle remoto + rápido chiado analógico de sintonia
-     */
     function playChannelZapSound(isPowerOn = false) {
       if (!state.soundEnabled) return;
       try {
@@ -1245,7 +1290,6 @@
 
         const now = audioCtx.currentTime;
 
-        // 1. Clique mecânico do controle remoto
         const osc = audioCtx.createOscillator();
         const oscGain = audioCtx.createGain();
         osc.type = isPowerOn ? "sine" : "triangle";
@@ -1258,7 +1302,6 @@
         osc.start(now);
         osc.stop(now + (isPowerOn ? 0.25 : 0.08));
 
-        // 2. Breve ruído branco de sintonia CRT (140ms)
         const bufferSize = Math.floor(audioCtx.sampleRate * 0.14);
         const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
         const data = noiseBuffer.getChannelData(0);
@@ -1382,7 +1425,6 @@
       document.getElementById("chapter-counter").textContent = `CAPÍTULO ${chapter.channel} DE ${String(total).padStart(2, "0")}`;
       document.getElementById("return-cap-num").textContent = chapter.channel;
 
-      // Logo oficial (1.png a 17.png) com fallback automático para SVG
       const logoContainer = document.getElementById("novela-logo-container");
       if (chapter.logoUrl && chapter.logoUrl.trim() !== "") {
         logoContainer.innerHTML = `
@@ -1404,7 +1446,6 @@
       document.getElementById("chapter-song").textContent = `"${chapter.song}"`;
       document.getElementById("chapter-synopsis").textContent = chapter.synopsis;
 
-      // Elenco em Cena
       const castListEl = document.getElementById("chapter-cast-list");
       const castCountEl = document.getElementById("cast-count-label");
       castCountEl.textContent = chapter.cast.length === 1 && chapter.cast[0].role === "Elenco"
@@ -1440,7 +1481,6 @@
         `;
       }).join("");
 
-      // Chamada "Cenas do Próximo Capítulo..."
       const teaserEl = document.getElementById("next-chapter-teaser");
       if (index < total - 1) {
         const nextChap = CHAPTERS[index + 1];
@@ -1607,18 +1647,22 @@
 
     /**
      * ==========================================================================
-     * 10. FICHA TÉCNICA: COREÓGRAFOS & ELENCO COMPLETO AGREGADO
+     * 10. FICHA TÉCNICA: COREÓGRAFOS (COM MODAL DE FOTO + INSTAGRAM) & ELENCO
      * ==========================================================================
      */
     function renderChoreographers() {
       const grid = document.getElementById("choreographers-grid");
       if (!grid) return;
 
-      grid.innerHTML = CHOREOGRAPHERS.map(person => {
+      grid.innerHTML = CHOREOGRAPHERS.map((person, idx) => {
         const hasPhoto = person.photoUrl && person.photoUrl.trim() !== "";
         return `
-          <div class="bg-graphite/90 border border-gold-mid/25 rounded-2xl p-3 flex flex-col items-center text-center">
-            <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-gold-dark via-gold-light to-gold-mid mb-2 shadow-md">
+          <button
+            type="button"
+            onclick="openChoreographerModal(${idx})"
+            class="group bg-graphite/90 hover:bg-marsala-dark/80 border border-gold-mid/25 hover:border-gold-light/70 rounded-2xl p-3 flex flex-col items-center text-center transition cursor-pointer"
+          >
+            <div class="relative w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-gold-dark via-gold-light to-gold-mid mb-2 shadow-md group-hover:scale-105 transition-transform">
               <div class="w-full h-full rounded-full bg-marsala-dark flex items-center justify-center overflow-hidden relative">
                 ${
                   hasPhoto
@@ -1629,12 +1673,59 @@
                   ${person.initials}
                 </span>
               </div>
+              <!-- Selo indicativo de ampliação / Instagram -->
+              <span class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-graphite-dark border border-gold-light text-gold-light text-[10px] flex items-center justify-center shadow">
+                🔍
+              </span>
             </div>
-            <p class="text-xs font-bold text-ice leading-tight">${person.name}</p>
+            <p class="text-xs font-bold text-ice group-hover:text-gold-cream leading-tight">${person.name}</p>
             <p class="text-[10px] text-graphite-muted mt-0.5 leading-snug">${person.role}</p>
-          </div>
+          </button>
         `;
       }).join("");
+    }
+
+    function openChoreographerModal(index) {
+      const person = CHOREOGRAPHERS[index];
+      if (!person) return;
+
+      const mediaEl = document.getElementById("modal-choreographer-media");
+      const roleEl = document.getElementById("modal-choreographer-role");
+      const igLinkEl = document.getElementById("modal-choreographer-ig-link");
+      const titleEl = document.getElementById("modal-choreographer-title");
+
+      const hasPhoto = person.photoUrl && person.photoUrl.trim() !== "";
+      if (hasPhoto) {
+        mediaEl.innerHTML = `
+          <img
+            src="${person.photoUrl}"
+            alt="${person.name}"
+            class="w-full h-full object-cover"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div style="display:none;" class="w-32 h-32 rounded-full border-2 border-gold-light bg-marsala-dark items-center justify-center font-cinzel font-black text-4xl gold-foil-text shadow-2xl">
+            ${person.initials}
+          </div>
+        `;
+      } else {
+        mediaEl.innerHTML = `
+          <div class="w-32 h-32 rounded-full border-2 border-gold-light bg-marsala-dark flex items-center justify-center font-cinzel font-black text-4xl gold-foil-text shadow-2xl">
+            ${person.initials}
+          </div>
+        `;
+      }
+
+      roleEl.textContent = person.role;
+      igLinkEl.href = (person.instagramUrl && person.instagramUrl.trim() !== "")
+        ? person.instagramUrl
+        : "https://www.instagram.com/nocompasso.acre/";
+      titleEl.textContent = `Instagram (${person.name})`;
+
+      document.getElementById("choreographer-modal").classList.remove("hidden");
+    }
+
+    function closeChoreographerModal() {
+      document.getElementById("choreographer-modal").classList.add("hidden");
     }
 
     function buildAggregatedCast() {
@@ -1770,11 +1861,16 @@
     function preloadAllLogos() {
       CHAPTERS.forEach((chap, idx) => {
         if (!chap.logoUrl) return;
-        // Baixa os 4 primeiros capítulos imediatamente e escalona o restante
         setTimeout(() => {
           const img = new Image();
           img.src = chap.logoUrl;
         }, idx < 4 ? 0 : idx * 150);
+      });
+
+      CHOREOGRAPHERS.forEach(person => {
+        if (!person.photoUrl) return;
+        const img = new Image();
+        img.src = person.photoUrl;
       });
     }
 
@@ -1807,6 +1903,14 @@
       document.getElementById("channel-guide-modal").addEventListener("click", e => {
         if (e.target.id === "channel-guide-modal") {
           closeChannelGuide();
+        }
+      });
+
+      // Fechar modal da foto do coreógrafo
+      document.getElementById("btn-close-choreographer").addEventListener("click", closeChoreographerModal);
+      document.getElementById("choreographer-modal").addEventListener("click", e => {
+        if (e.target.id === "choreographer-modal") {
+          closeChoreographerModal();
         }
       });
 
@@ -1877,6 +1981,7 @@
           goToChapter(state.currentIndex - 1);
         } else if (e.key === "Escape") {
           closeChannelGuide();
+          closeChoreographerModal();
         }
       });
     });
