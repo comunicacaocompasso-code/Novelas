@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>NOVELAS: No compasso da sua tela | No Compasso Studio de Dança</title>
+  <meta name="description" content="Programa Digital Oficial da Mostra de Dança NOVELAS: No compasso da sua tela - No Compasso Studio de Dança. 14 e 15 de Novembro às 19h no Cine Teatro Recreio." />
+
+  <!-- Google Fonts: Cinzel & Playfair Display para títulos dramáticos de novela; Plus Jakarta Sans para leitura limpa -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            marsala: {
+              DEFAULT: '#4A0E1C',
+              dark: '#2B0710',
+              deep: '#190309',
+              light: '#6D162B'
+            },
+            ice: '#F8F6F2',
+            graphite: {
+              DEFAULT: '#1E1E24',
+              dark: '#141418',
+              light: '#2B2B33',
+              muted: '#8E8E98'
+            },
+            gold: {
+              light: '#F6E27A',
+              mid: '#D4AF37',
+              dark: '#AA7C11',
+              cream: '#FFF3B0'
+            }
+          },
+          fontFamily: {
+            cinzel: ['"Cinzel"', 'serif'],
+            playfair: ['"Playfair Display"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          },
+          boxShadow: {
+            'gold-glow': '0 0 25px rgba(212, 175, 55, 0.28)',
+            'tv-bezel': '0 20px 50px rgba(0, 0, 0, 0.75), inset 0 1px 1px rgba(246, 226, 122, 0.25)',
+            'remote': '0 -10px 30px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(246, 226, 122, 0.2)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PERSONALIZADOS — ESTÉTICA TELEVISÃO, NOVELA & DOURADO LAMINADO
+       ========================================================================== */
+    :root {
+      --marsala-main: #4A0E1C;
+      --marsala-dark: #2B0710;
+      --ice-white: #F8F6F2;
+      --graphite-dark: #1E1E24;
+      --graphite-muted: #8E8E98;
+      --gold-grad: linear-gradient(135deg, #AA7C11 0%, #F6E27A 28%, #D4AF37 52%, #FFF3B0 74%, #AA7C11 100%);
+    }
+
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: #190309;
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(109, 22, 43, 0.65) 0%, rgba(43, 7, 16, 0.92) 55%, #140207 100%);
+      color: #F8F6F2;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      min-height: 100dvh;
+    }
+
+    /* Texto Dourado Laminado Metálico */
+    .gold-foil-text {
+      background: linear-gradient(135deg, #B8860B 0%, #F6E27A 28%, #D4AF37 50%, #FFF5C0 72%, #AA7C11 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 2px 14px rgba(212, 175, 55, 0.18);
+    }
+
+    /* Superfície Dourada Laminada para Botões Principais */
+    .gold-foil-btn {
+      background: linear-gradient(135deg, #AA7C11 0%, #D4AF37 32%, #F6E27A 52%, #D4AF37 74%, #9A6E0B 100%);
+      color: #1E1E24;
+      box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.65);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    }
+    .gold-foil-btn:hover {
+      filter: brightness(1.06);
+      box-shadow: 0 6px 24px rgba(246, 226, 122, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+    }
+    .gold-foil-btn:active {
+      transform: scale(0.97);
+    }
+
+    /* Borda Dourada Sutil */
+    .gold-border-card {
+      border: 1px solid rgba(212, 175, 55, 0.32);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(246, 226, 122, 0.14);
+    }
+
+    /* Efeito de Tela CRT / Televisor */
+    .crt-screen {
+      position: relative;
+      background: radial-gradient(ellipse at center, #3A0B16 0%, #23060D 70%, #160308 100%);
+      box-shadow: inset 0 0 45px rgba(0, 0, 0, 0.75);
+    }
+
+    .crt-scanlines::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0px,
+        rgba(255, 255, 255, 0) 2px,
+        rgba(0, 0, 0, 0.18) 3px,
+        rgba(0, 0, 0, 0.18) 4px
+      );
+      pointer-events: none;
+      z-index: 15;
+      border-radius: inherit;
+    }
+
+    /* Animação de Ondas de Sintonia na Tela Inicial */
+    @keyframes wavePulse {
+      0%, 100% { transform: scaleY(0.35); opacity: 0.55; }
+      50% { transform: scaleY(1); opacity: 1; }
+    }
+    .tuning-bar {
+      animation: wavePulse 1.2s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    /* Animação de Equalizador na Trilha Sonora */
+    @keyframes eqDance {
+      0%, 100% { height: 4px; }
+      50% { height: 14px; }
+    }
+    .eq-bar-1 { animation: eqDance 0.7s ease-in-out infinite; }
+    .eq-bar-2 { animation: eqDance 0.5s ease-in-out infinite 0.15s; }
+    .eq-bar-3 { animation: eqDance 0.85s ease-in-out infinite 0.3s; }
+
+    /* Transição Suave de Entrada do Capítulo */
+    @keyframes channelTuneIn {
+      0% {
+        opacity: 0.25;
+        transform: scale(0.985) translateY(4px);
+        filter: brightness(1.4) contrast(1.2);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: brightness(1) contrast(1);
+      }
+    }
+    .animate-channel-in {
+      animation: channelTuneIn 0.32s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    /* Botão Tátil do Controle Remoto */
+    .remote-btn {
+      background: linear-gradient(180deg, #2B2B33 0%, #1B1B20 100%);
+      border: 1px solid rgba(212, 175, 55, 0.24);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      transition: all 0.15s ease;
+    }
+    .remote-btn:active {
+      transform: translateY(2px) scale(0.96);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.5);
+      border-color: rgba(246, 226, 122, 0.6);
+    }
+
+    /* Scrollbar discreta */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1E1E24;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #6D162B;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D4AF37;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-gold-mid selection:text-graphite-dark">
+
+  <!-- ========================================================================
+       CANVAS DE CHUVISCO DE TV (Efeito rápido de 250ms na troca de canal)
+       ======================================================================== -->
+  <canvas id="tv-static-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-50 opacity-0 transition-opacity duration-75"></canvas>
+
+  <!-- ========================================================================
+       NOTIFICAÇÃO TOAST CUSTOMIZADA (Substitui qualquer alert())
+       ======================================================================== -->
+  <div id="toast-banner" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-300 translate-y-[-12px] w-[92%] max-w-sm">
+    <div class="bg-graphite-dark/95 backdrop-blur-md border border-gold-mid/60 text-ice px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3">
+      <span class="w-2.5 h-2.5 rounded-full bg-gold-light animate-ping shrink-0"></span>
+      <p id="toast-message" class="text-xs sm:text-sm font-medium text-ice"></p>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       1. TELA DE ABERTURA ("LIGAR TV" / "SINTONIZANDO...")
+       ======================================================================== -->
+  <section id="intro-screen" class="min-h-[100dvh] flex flex-col justify-between items-center px-4 py-6 sm:py-10 max-w-lg mx-auto relative z-20">
+    <!-- Cabeçalho Institucional Superior -->
+    <header class="text-center space-y-1 pt-1">
+      <p class="text-[11px] sm:text-xs tracking-[0.28em] uppercase text-ice/80 font-semibold">
+        No Compasso Studio de Dança
+      </p>
+      <div class="flex items-center justify-center gap-2">
+        <span class="h-[1px] w-8 bg-gradient-to-r from-transparent to-gold-mid"></span>
+        <span class="text-[10px] tracking-[0.25em] uppercase text-gold-light font-bold">Apresenta</span>
+        <span class="h-[1px] w-8 bg-gradient-to-l from-transparent to-gold-mid"></span>
+      </div>
+    </header>
+
+    <!-- Título Principal da Mostra -->
+    <div class="text-center my-2 space-y-1.5">
+      <p class="text-xs tracking-[0.3em] uppercase text-gold-light/90 font-semibold">
+        ✦ Mostra de Dança ✦
+      </p>
+      <h1 class="font-cinzel text-4xl sm:text-5xl font-black tracking-wider gold-foil-text leading-none">
+        NOVELAS
+      </h1>
+      <p class="font-playfair italic text-lg sm:text-xl text-gold-light">
+        No compasso da sua tela
+      </p>
+      <p class="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-graphite-muted pt-1">
+        Sinta • Lembre • Dance as histórias que marcaram gerações
+      </p>
+    </div>
+
+    <!-- Moldura de Televisor Clássico ("Sintonizando...") -->
+    <div class="w-full my-3">
+      <!-- Antenas V Retrô -->
+      <div class="flex justify-center items-end h-8 -mb-1 relative">
+        <div class="w-0.5 h-9 bg-gradient-to-t from-graphite-muted to-gold-light -rotate-[28deg] origin-bottom rounded-full"></div>
+        <div class="w-6 h-2.5 bg-graphite-light border border-gold-mid/40 rounded-t-lg mx-1"></div>
+        <div class="w-0.5 h-9 bg-gradient-to-t from-graphite-muted to-gold-light rotate-[28deg] origin-bottom rounded-full"></div>
+      </div>
+
+      <!-- Gabinete do Televisor -->
+      <div class="bg-gradient-to-b from-graphite-light via-graphite to-graphite-dark p-3.5 sm:p-4 rounded-[28px] border-2 border-gold-mid/45 shadow-tv-bezel">
+        <div class="flex flex-col sm:flex-row gap-3 items-stretch">
+          <!-- Tubo de Imagem CRT -->
+          <div class="crt-screen crt-scanlines flex-1 rounded-[20px] border-2 border-black/80 p-5 sm:p-6 flex flex-col items-center justify-center text-center min-h-[215px] relative overflow-hidden">
+            <!-- Brilho de vidro CRT -->
+            <div class="absolute -top-12 -left-12 w-40 h-40 bg-white/5 rounded-full blur-xl pointer-events-none"></div>
+
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-marsala/80 border border-gold-mid/40 text-[10px] tracking-[0.2em] uppercase text-gold-light mb-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold-light animate-pulse"></span>
+              Sinal Encontrado • Canal 01
+            </span>
+
+            <p class="font-cinzel text-xl sm:text-2xl font-bold tracking-[0.18em] gold-foil-text mb-3">
+              SINTONIZANDO...
+            </p>
+
+            <!-- Onda de Frequência Dourada -->
+            <div class="flex items-center justify-center gap-1 h-8 my-1" aria-hidden="true">
+              <span class="tuning-bar w-1 h-3 bg-gold-dark rounded-full" style="animation-delay: 0.05s"></span>
+              <span class="tuning-bar w-1 h-5 bg-gold-mid rounded-full" style="animation-delay: 0.15s"></span>
+              <span class="tuning-bar w-1 h-7 bg-gold-light rounded-full" style="animation-delay: 0.25s"></span>
+              <span class="tuning-bar w-1 h-4 bg-gold-mid rounded-full" style="animation-delay: 0.35s"></span>
+              <span class="tuning-bar w-1 h-8 bg-gold-cream rounded-full" style="animation-delay: 0.45s"></span>
+              <span class="tuning-bar w-1 h-6 bg-gold-light rounded-full" style="animation-delay: 0.55s"></span>
+              <span class="tuning-bar w-1 h-3 bg-gold-mid rounded-full" style="animation-delay: 0.65s"></span>
+              <span class="tuning-bar w-1 h-7 bg-gold-light rounded-full" style="animation-delay: 0.2s"></span>
+              <span class="tuning-bar w-1 h-5 bg-gold-mid rounded-full" style="animation-delay: 0.4s"></span>
+              <span class="tuning-bar w-1 h-3 bg-gold-dark rounded-full" style="animation-delay: 0.1s"></span>
+            </div>
+
+            <p class="text-xs text-ice/75 mt-3 max-w-[240px] leading-relaxed">
+              Prepare a emoção. O espetáculo vai começar na tela do <strong class="text-gold-light font-semibold">Cine Teatro Recreio</strong>.
+            </p>
+          </div>
+
+          <!-- Painel Lateral de Seletor de Canais (Estilo TV Clássica) -->
+          <div class="flex sm:flex-col justify-between items-center bg-graphite-dark/90 border border-gold-mid/25 rounded-2xl px-3 py-2 sm:py-4 sm:w-16 shrink-0">
+            <!-- Seletor Rotativo Superior -->
+            <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-graphite-dark to-graphite-light border-2 border-gold-mid/50 flex items-center justify-center shadow-inner">
+              <div class="w-1 h-4 bg-gold-light rounded-full rotate-45"></div>
+            </div>
+            <!-- Grade de Alto-Falante -->
+            <div class="flex sm:flex-col gap-1 my-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-black/80 border border-white/10"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-black/80 border border-white/10"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-black/80 border border-white/10"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-black/80 border border-white/10"></span>
+            </div>
+            <!-- Seletor Rotativo Inferior -->
+            <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-graphite-dark to-graphite-light border-2 border-gold-mid/50 flex items-center justify-center shadow-inner">
+              <div class="w-1 h-4 bg-gold-mid rounded-full -rotate-12"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botão Principal: Ligar TV / Entrar no Ar -->
+        <div class="mt-4">
+          <button
+            id="btn-power-on"
+            type="button"
+            class="gold-foil-btn w-full py-3.5 px-6 rounded-2xl font-cinzel font-extrabold text-sm sm:text-base tracking-[0.14em] uppercase flex items-center justify-center gap-2.5 cursor-pointer"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9" />
+            </svg>
+            <span>Entrar no Ar • Assistir Agora</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rodapé de Informações Rápidas do Evento -->
+    <footer class="w-full bg-graphite-dark/80 border border-gold-mid/30 rounded-2xl px-4 py-3 flex items-center justify-between text-[11px] sm:text-xs text-ice/90">
+      <div class="flex items-center gap-2">
+        <span class="text-gold-light font-bold">📅 14 e 15 Nov</span>
+        <span class="text-graphite-muted">•</span>
+        <span class="text-gold-light font-semibold">19h</span>
+      </div>
+      <div class="text-right truncate pl-2">
+        <span class="text-ice/80">Cine Teatro Recreio</span>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ========================================================================
+       2. INTERFACE PRINCIPAL DO PROGRAMA (TELEVISOR / PLAYER DE NOVELA)
+       ======================================================================== -->
+  <div id="main-app" class="hidden min-h-[100dvh] pb-28 max-w-lg mx-auto px-3 sm:px-4 pt-3 flex flex-col">
+
+    <!-- Cabeçalho Superior Compacto -->
+    <header class="flex items-center justify-between gap-2 pb-3 border-b border-gold-mid/25">
+      <div class="min-w-0">
+        <p class="text-[9px] sm:text-[10px] tracking-[0.22em] uppercase text-graphite-muted font-semibold truncate">
+          No Compasso Studio de Dança apresenta
+        </p>
+        <div class="flex items-baseline gap-1.5">
+          <h1 class="font-cinzel text-base sm:text-lg font-black gold-foil-text tracking-wider">
+            NOVELAS
+          </h1>
+          <span class="font-playfair italic text-xs sm:text-sm text-gold-light/90 truncate">
+            No compasso da sua tela
+          </span>
+        </div>
+      </div>
+
+      <!-- Controles Rápidos do Cabeçalho: Som TV & Compartilhar -->
+      <div class="flex items-center gap-1.5 shrink-0">
+        <button
+          id="btn-toggle-sound"
+          type="button"
+          title="Ativar/Silenciar efeito sonoro de TV"
+          class="p-2.5 rounded-xl bg-graphite-dark border border-gold-mid/30 text-gold-light hover:bg-graphite-light transition cursor-pointer"
+          aria-label="Alternar som de troca de canal"
+        >
+          <!-- Ícone de Som Ativo -->
+          <svg id="icon-sound-on" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11 5L6 9H2v6h4l5 4V5zM15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14" />
+          </svg>
+          <!-- Ícone de Som Mudo -->
+          <svg id="icon-sound-off" class="w-4 h-4 hidden text-graphite-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6" />
+          </svg>
+        </button>
+
+        <button
+          id="btn-share"
+          type="button"
+          title="Compartilhar Programa Digital"
+          class="p-2.5 rounded-xl bg-graphite-dark border border-gold-mid/30 text-gold-light hover:bg-graphite-light transition cursor-pointer"
+          aria-label="Compartilhar programa"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- ======================================================================
+         VISÃO A: TELA DA NOVELA (CAPÍTULO ATUAL)
+         ====================================================================== -->
+    <main id="view-chapters" class="mt-3 flex-1 flex flex-col">
+      <!-- Barra de Status do Canal & Selo AO VIVO -->
+      <div class="flex items-center justify-between gap-2 bg-graphite-dark/90 border border-gold-mid/30 rounded-t-2xl px-3.5 py-2.5">
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded-md bg-marsala border border-gold-mid/50 font-cinzel text-[11px] font-bold text-gold-light tracking-wider" id="channel-badge">
+            CANAL 01
+          </span>
+          <span class="text-xs font-semibold text-ice/90 tracking-wide" id="chapter-counter">
+            CAPÍTULO 01 DE 17
+          </span>
+        </div>
+
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-950/90 border border-red-500/40">
+          <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+          <span class="text-[10px] font-bold tracking-wider uppercase text-red-200">
+            Ao Vivo no Palco
+          </span>
+        </div>
+      </div>
+
+      <!-- Moldura Interna da Tela CRT do Capítulo (Suporta deslizar / swipe no celular) -->
+      <article
+        id="chapter-card"
+        class="crt-screen crt-scanlines gold-border-card rounded-b-3xl p-4 sm:p-5 flex-1 flex flex-col justify-between relative overflow-hidden"
+      >
+        <div id="chapter-animated-content" class="relative z-20 space-y-4">
+          <!-- Emblema / Logo Estilizado da Novela -->
+          <div class="flex flex-col items-center text-center pt-1">
+            <div id="novela-logo-container" class="w-full max-w-[260px] min-h-[96px] flex items-center justify-center mb-2">
+              <!-- O emblema SVG ou PNG da novela é injetado dinamicamente via JS -->
+            </div>
+
+            <!-- Tag de Estilo de Dança -->
+            <span id="chapter-style-badge" class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-marsala-light/90 border border-gold-mid/60 text-gold-light text-xs font-bold tracking-[0.14em] uppercase shadow-md">
+              Jazz Adulto
+            </span>
+
+            <!-- Título Dramático da Novela -->
+            <h2 id="chapter-novela-title" class="font-cinzel text-2xl sm:text-3xl font-black gold-foil-text tracking-wide mt-2.5 leading-tight">
+              Avenida Brasil
+            </h2>
+            <p id="chapter-subtitle" class="text-[11px] text-graphite-muted uppercase tracking-[0.18em] mt-0.5">
+              Horário Nobre • Emoção & Intensidade
+            </p>
+          </div>
+
+          <!-- Faixa de Trilha Sonora (Música Tema) -->
+          <div class="bg-graphite-dark/90 border border-gold-mid/30 rounded-2xl px-3.5 py-2.5 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-marsala border border-gold-mid/40 flex items-center justify-center shrink-0">
+              <div class="flex items-end gap-0.5 h-4" aria-hidden="true">
+                <span class="eq-bar-1 w-1 bg-gold-light rounded-full"></span>
+                <span class="eq-bar-2 w-1 bg-gold-mid rounded-full"></span>
+                <span class="eq-bar-3 w-1 bg-gold-cream rounded-full"></span>
+              </div>
+            </div>
+            <div class="min-w-0 flex-1">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold-light/80 font-semibold">
+                Trilha Sonora em Cena
+              </p>
+              <p id="chapter-song" class="text-xs sm:text-sm font-bold text-ice truncate">
+                "Vem dançar com tudo"
+              </p>
+            </div>
+          </div>
+
+          <!-- Sinopse / Release Dramático da Coreografia -->
+          <div class="bg-marsala-dark/75 border-l-2 border-gold-mid rounded-r-2xl p-3.5 sm:p-4">
+            <p class="text-[10px] uppercase tracking-[0.2em] text-gold-light font-bold mb-1">
+              Sinopse do Capítulo
+            </p>
+            <p id="chapter-synopsis" class="text-xs sm:text-sm text-ice/90 leading-relaxed">
+              Carregando sinopse do capítulo...
+            </p>
+          </div>
+
+          <!-- Elenco em Cena (Integrantes no Palco) -->
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-[11px] uppercase tracking-[0.2em] text-gold-light font-bold flex items-center gap-1.5">
+                <span>🎭</span> Elenco em Cena
+              </h3>
+              <span id="cast-count-label" class="text-[10px] text-graphite-muted font-medium">
+                2 artistas
+              </span>
+            </div>
+            <div id="chapter-cast-list" class="flex flex-wrap gap-1.5">
+              <!-- Badges do elenco injetadas via JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloco Chamada de TV: "Cenas do Próximo Capítulo..." -->
+        <div id="next-chapter-teaser" class="relative z-20 mt-5 pt-3.5 border-t border-gold-mid/25">
+          <!-- Conteúdo dinâmico da chamada do próximo capítulo -->
+        </div>
+      </article>
+
+      <!-- Dica sutil de navegação por gesto -->
+      <p class="text-center text-[10px] text-graphite-muted mt-2 tracking-wide">
+        Deslize a tela para o lado ou use o controle remoto abaixo para trocar de canal
+      </p>
+    </main>
+
+    <!-- ======================================================================
+         VISÃO B: FICHA TÉCNICA, COREÓGRAFOS & ELENCO COMPLETO
+         ====================================================================== -->
+    <section id="view-credits" class="hidden mt-3 space-y-5 animate-channel-in">
+      <!-- Cabeçalho da Ficha Técnica -->
+      <div class="bg-gradient-to-br from-marsala via-marsala-dark to-graphite-dark gold-border-card rounded-3xl p-5 text-center relative overflow-hidden">
+        <span class="inline-block px-3 py-0.5 rounded-full bg-gold-mid/15 border border-gold-mid/40 text-[10px] tracking-[0.22em] uppercase text-gold-light font-bold mb-2">
+          Bastidores & Créditos Oficiais
+        </span>
+        <h2 class="font-cinzel text-2xl sm:text-3xl font-black gold-foil-text">
+          FICHA TÉCNICA
+        </h2>
+        <p class="text-xs text-ice/80 mt-1 max-w-xs mx-auto leading-relaxed">
+          Conheça a direção, os coreógrafos e todo o elenco que dá vida às novelas no palco.
+        </p>
+
+        <button
+          id="btn-back-to-tv"
+          type="button"
+          class="mt-3.5 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-graphite-dark/90 border border-gold-mid/40 text-xs font-semibold text-gold-light hover:bg-graphite-light transition cursor-pointer"
+        >
+          <span>📺 Voltar para a Transmissão (Cap. <span id="return-cap-num">01</span>)</span>
+        </button>
+      </div>
+
+      <!-- Seção 1: Direção & Coreógrafos -->
+      <div class="bg-graphite-dark/90 gold-border-card rounded-3xl p-4 sm:p-5">
+        <div class="flex items-center justify-between mb-3.5">
+          <div>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-gold-light font-bold">Equipe Criativa</p>
+            <h3 class="font-cinzel text-lg font-bold text-ice">Direção & Coreógrafos</h3>
+          </div>
+          <span class="text-lg">🎬</span>
+        </div>
+
+        <div id="choreographers-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <!-- Cards de coreógrafos injetados via JS (com espaço pronto para foto real) -->
+        </div>
+      </div>
+
+      <!-- Seção 2: Elenco Completo & Convidados Especiais -->
+      <div class="bg-graphite-dark/90 gold-border-card rounded-3xl p-4 sm:p-5">
+        <div class="mb-3">
+          <p class="text-[10px] uppercase tracking-[0.2em] text-gold-light font-bold">Artistas em Cena</p>
+          <h3 class="font-cinzel text-lg font-bold text-ice">Elenco & Convidados</h3>
+        </div>
+
+        <!-- Busca e Filtros do Elenco -->
+        <div class="space-y-2.5 mb-4">
+          <div class="relative">
+            <input
+              id="cast-search-input"
+              type="text"
+              placeholder="Buscar bailarino(a) ou novela..."
+              class="w-full bg-graphite border border-gold-mid/30 focus:border-gold-light rounded-xl pl-9 pr-3 py-2.5 text-xs text-ice placeholder-graphite-muted outline-none transition"
+            />
+            <svg class="w-4 h-4 text-gold-mid absolute left-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+            </svg>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5" id="cast-filter-buttons">
+            <button type="button" data-filter="all" class="cast-filter-btn active px-3 py-1.5 rounded-lg text-[11px] font-bold bg-gold-mid text-graphite-dark cursor-pointer">
+              Todos
+            </button>
+            <button type="button" data-filter="special" class="cast-filter-btn px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-graphite border border-gold-mid/30 text-ice/85 cursor-pointer">
+              ★ Convidados Especiais
+            </button>
+            <button type="button" data-filter="kids" class="cast-filter-btn px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-graphite border border-gold-mid/30 text-ice/85 cursor-pointer">
+              Elenco Infantil
+            </button>
+          </div>
+        </div>
+
+        <div id="full-cast-list" class="space-y-2.5">
+          <!-- Lista de bailarinos com capítulos clicáveis injetada via JS -->
+        </div>
+      </div>
+
+      <!-- Seção 3: Informações do Espetáculo & Apoio Institucional -->
+      <div class="bg-gradient-to-b from-graphite-dark to-marsala-deep gold-border-card rounded-3xl p-4 sm:p-5 space-y-4">
+        <div class="text-center border-b border-gold-mid/20 pb-3.5">
+          <p class="font-cinzel text-sm font-bold gold-foil-text tracking-wider">
+            NO COMPASSO STUDIO DE DANÇA
+          </p>
+          <p class="text-xs text-ice/85 mt-1.5">
+            📅 <strong>14 e 15 de Novembro</strong> • ⏰ <strong>19:00 Horas</strong>
+          </p>
+          <p class="text-xs text-ice/80 mt-1">
+            📍 <strong>Cine Teatro Recreio</strong><br />
+            <span class="text-[11px] text-graphite-muted">Rua Senador Eduardo Assmar, nº 150 — Bairro 6 de Agosto, Rio Branco - AC</span>
+          </p>
+          <div class="flex flex-wrap justify-center gap-2 mt-3 text-[11px]">
+            <span class="px-3 py-1 rounded-full bg-graphite border border-gold-mid/30 text-gold-light font-medium">
+              📸 @nocompasso.acre
+            </span>
+            <span class="px-3 py-1 rounded-full bg-graphite border border-gold-mid/30 text-gold-light font-medium">
+              📱 (68) 99953-3619
+            </span>
+          </div>
+        </div>
+
+        <!-- Apoio Institucional -->
+        <div>
+          <p class="text-[10px] uppercase tracking-[0.24em] text-center text-graphite-muted font-bold mb-3">
+            Apoio Institucional
+          </p>
+          <div class="grid grid-cols-3 gap-2 text-center">
+            <div class="bg-ice/95 text-graphite-dark rounded-xl p-2.5 flex flex-col items-center justify-center shadow">
+              <span class="w-7 h-7 rounded-full bg-emerald-700 text-white font-bold text-xs flex items-center justify-center mb-1">A</span>
+              <span class="text-[10px] font-extrabold tracking-tight leading-tight">ASDAC</span>
+            </div>
+            <div class="bg-ice/95 text-graphite-dark rounded-xl p-2.5 flex flex-col items-center justify-center shadow">
+              <span class="w-7 h-7 rounded-full bg-marsala text-gold-light font-bold text-xs flex items-center justify-center mb-1">🎭</span>
+              <span class="text-[10px] font-extrabold tracking-tight leading-tight">Cine Teatro Recreio</span>
+            </div>
+            <div class="bg-ice/95 text-graphite-dark rounded-xl p-2.5 flex flex-col items-center justify-center shadow">
+              <span class="w-7 h-7 rounded-full bg-amber-600 text-white font-bold text-xs flex items-center justify-center mb-1">🏛️</span>
+              <span class="text-[9px] font-extrabold tracking-tight leading-tight">Fundação Elias Mansour</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ========================================================================
+       3. CONTROLE REMOTO FIXO NA BASE (MOBILE-FRIENDLY)
+       ======================================================================== -->
+  <nav
+    id="remote-control-bar"
+    aria-label="Controle Remoto da Mostra"
+    class="hidden fixed bottom-0 left-0 right-0 z-30 px-2.5 pb-2.5 pt-1.5 pointer-events-none"
+  >
+    <div class="max-w-lg mx-auto bg-gradient-to-b from-graphite-light/95 to-graphite-dark/98 backdrop-blur-lg border border-gold-mid/45 rounded-3xl p-2 shadow-remote pointer-events-auto">
+      <!-- Indicador LED infravermelho do Controle Remoto -->
+      <div class="flex items-center justify-between px-3 pb-1.5">
+        <span class="text-[9px] font-cinzel tracking-[0.25em] uppercase text-graphite-muted font-bold">
+          Controle Remoto • No Compasso TV
+        </span>
+        <span id="remote-led" class="w-2 h-2 rounded-full bg-red-800 transition-colors duration-100" title="Sinal IR"></span>
+      </div>
+
+      <!-- Grade dos 4 Botões Principais -->
+      <div class="grid grid-cols-4 gap-1.5">
+        <!-- Botão 1: Capítulo Anterior -->
+        <button
+          id="btn-prev-chapter"
+          type="button"
+          class="remote-btn rounded-2xl py-2.5 px-1 flex flex-col items-center justify-center gap-1 text-ice cursor-pointer"
+        >
+          <span class="text-sm leading-none text-gold-light">⏮</span>
+          <span class="text-[10px] sm:text-[11px] font-bold tracking-tight">Cap. Ant.</span>
+        </button>
+
+        <!-- Botão 2: Grade de Canais (1-17) -->
+        <button
+          id="btn-open-guide"
+          type="button"
+          class="remote-btn rounded-2xl py-2.5 px-1 flex flex-col items-center justify-center gap-1 text-ice cursor-pointer"
+        >
+          <span class="text-sm leading-none text-gold-light">📺</span>
+          <span class="text-[10px] sm:text-[11px] font-bold tracking-tight">Grade 1-17</span>
+        </button>
+
+        <!-- Botão 3: Ficha Técnica -->
+        <button
+          id="btn-toggle-credits"
+          type="button"
+          class="remote-btn rounded-2xl py-2.5 px-1 flex flex-col items-center justify-center gap-1 text-ice cursor-pointer"
+        >
+          <span class="text-sm leading-none text-gold-light">🎬</span>
+          <span id="remote-credits-label" class="text-[10px] sm:text-[11px] font-bold tracking-tight">Ficha Téc.</span>
+        </button>
+
+        <!-- Botão 4: Próximo Capítulo -->
+        <button
+          id="btn-next-chapter"
+          type="button"
+          class="gold-foil-btn rounded-2xl py-2.5 px-1 flex flex-col items-center justify-center gap-1 cursor-pointer"
+        >
+          <span class="text-sm leading-none font-black">⏭</span>
+          <span class="text-[10px] sm:text-[11px] font-extrabold tracking-tight">Próx. Cap.</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========================================================================
+       4. MODAL / DRAWER "GRADE DE CANAIS" (01 A 17)
+       ======================================================================== -->
+  <div
+    id="channel-guide-modal"
+    class="hidden fixed inset-0 z-40 bg-black/80 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="guide-modal-title"
+  >
+    <div class="bg-gradient-to-b from-graphite-dark to-marsala-deep border-t-2 sm:border-2 border-gold-mid/50 w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[85dvh] flex flex-col shadow-2xl overflow-hidden">
+      <!-- Cabeçalho do Guia -->
+      <div class="px-5 py-4 border-b border-gold-mid/25 flex items-center justify-between shrink-0 bg-graphite-dark">
+        <div>
+          <p class="text-[10px] uppercase tracking-[0.22em] text-gold-light font-bold">
+            Programação Oficial
+          </p>
+          <h2 id="guide-modal-title" class="font-cinzel text-lg sm:text-xl font-black text-ice">
+            Grade de Canais (01 – 17)
+          </h2>
+        </div>
+        <button
+          id="btn-close-guide"
+          type="button"
+          class="w-9 h-9 rounded-xl bg-graphite-light border border-gold-mid/30 text-ice hover:text-gold-light flex items-center justify-center cursor-pointer"
+          aria-label="Fechar grade de canais"
+        >
+          ✕
+        </button>
+      </div>
+
+      <!-- Lista / Grid Numerado dos 17 Capítulos -->
+      <div id="channel-guide-list" class="p-4 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+        <!-- Itens 01 a 17 gerados via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       JAVASCRIPT — DADOS DOS 17 CAPÍTULOS, SINTONIA CRT, ÁUDIO & NAVEGAÇÃO
+       ======================================================================== -->
+  <script>
+    /**
+     * ==========================================================================
+     * 1. BANCO DE DADOS DO PROGRAMA (EDITÁVEL FACILMENTE PARA GITHUB / VERCEL)
+     * ==========================================================================
+     * Dica para o organizador:
+     * - Para colocar uma logo oficial em PNG de alguma novela, basta preencher o
+     *   campo `logoUrl` (ex: "./assets/logos/avenida-brasil.png"). Enquanto estiver
+     *   vazio (""), o sistema gera automaticamente um emblema exclusivo em SVG!
+     * - Na seção `CHOREOGRAPHERS`, basta adicionar o caminho da foto em `photoUrl`
+     *   (ex: "./assets/equipe/nome.jpg") para exibir a fotografia real na moldura.
+     */
+    const CHAPTERS = [
+      {
+        number: 1,
+        channel: "01",
+        style: "Jazz Adulto",
+        novela: "Avenida Brasil",
+        subtitle: "Abertura de Horário Nobre • Oi, Oi, Oi!",
+        song: "Vem dançar com tudo",
+        logoUrl: "",
+        emblemType: "avenida",
+        synopsis: "O subúrbio mais famoso do Brasil invade o palco com energia eletrizante, reviravoltas e pura vibração! Uma abertura contagiante que mistura dramaticidade e ritmo pulsante para dar início à nossa programação.",
+        cast: [
+          { name: "Eduardo", role: "Bailarino" },
+          { name: "Lavinia", role: "Convidada Especial" }
+        ]
+      },
+      {
+        number: 2,
+        channel: "02",
+        style: "Ballet Infantil",
+        novela: "Carrossel",
+        subtitle: "Sessão Encantada • Escola Mundial",
+        song: "Trilha Sonora Carrossel",
+        logoUrl: "",
+        emblemType: "carrossel",
+        synopsis: "A doçura da infância e a magia da Escola Mundial ganham vida na ponta dos pés. Nossas pequenas bailarinas trazem leveza, amizade e sonhos coloridos em um capítulo repleto de ternura.",
+        cast: [
+          { name: "Elenco Infantil", role: "Elenco" }
+        ]
+      },
+      {
+        number: 3,
+        channel: "03",
+        style: "Forró 2",
+        novela: "Caminho das Índias",
+        subtitle: "Are Baba! • Paixão & Ritmo",
+        song: "Você não vale nada",
+        logoUrl: "",
+        emblemType: "indias",
+        synopsis: "Quando o tempero envolvente do Oriente encontra o balanço irresistível do forró, nasce um capítulo inesquecível! Giros marcados, cumplicidade e muita personalidade tomam conta da cena.",
+        cast: [
+          { name: "Ana Meire", role: "Bailarina" },
+          { name: "André", role: "Bailarino" },
+          { name: "Fabiano", role: "Bailarino" },
+          { name: "Hellen", role: "Bailarina" },
+          { name: "Luana", role: "Bailarina" },
+          { name: "Victor", role: "Bailarino" },
+          { name: "Anthoany", role: "Bailarino" },
+          { name: "Jake", role: "Bailarino(a)" }
+        ]
+      },
+      {
+        number: 4,
+        channel: "04",
+        style: "Dança Cigana",
+        novela: "Explode Coração",
+        subtitle: "Fogo, Paixão & Liberdade",
+        song: "Sandra Rosa Madalena",
+        logoUrl: "",
+        emblemType: "cigana",
+        synopsis: "O magnetismo das saias rodadas, o brilho do ouro e a força da tradição cigana celebram o amor livre e intenso que marcou época na teledramaturgia brasileira.",
+        cast: [
+          { name: "Paula Cigana", role: "Convidada Especial" }
+        ]
+      },
+      {
+        number: 5,
+        channel: "05",
+        style: "Lambada",
+        novela: "Rainha da Sucata",
+        subtitle: "Clássico dos Anos 90 • Puro Glamour",
+        song: "Me chama que eu vou",
+        logoUrl: "",
+        emblemType: "sucata",
+        synopsis: "Da energia vibrante da Avenida Paulista direto para o Cine Teatro Recreio! Cintura solta, alegria contagiante e o espírito exuberante de Maria do Carmo em uma coreografia cheia de atitude.",
+        cast: [
+          { name: "Albertino", role: "Bailarino" },
+          { name: "Anthoany", role: "Bailarino" },
+          { name: "Luana", role: "Bailarina" },
+          { name: "Manoel", role: "Bailarino" },
+          { name: "Nilcinara", role: "Bailarina" },
+          { name: "Victor", role: "Bailarino" }
+        ]
+      },
+      {
+        number: 6,
+        channel: "06",
+        style: "Carimbó",
+        novela: "A Força do Querer",
+        subtitle: "Orgulho do Norte • Ritmo das Águas",
+        song: "Curió do Bico Doce",
+        logoUrl: "",
+        emblemType: "forca",
+        synopsis: "A força da natureza amazônica e o balanço ancestral do carimbó celebram nossas raízes nortistas com cores vivas, saias floridas e energia que faz o teatro pulsar.",
+        cast: [
+          { name: "Carimbó do Parque", role: "Convidada Especial" }
+        ]
+      },
+      {
+        number: 7,
+        channel: "07",
+        style: "West",
+        novela: "Por Amor",
+        subtitle: "Drama & Elegância • Manoel Carlos",
+        song: "Pout-porri (Palpite)",
+        logoUrl: "",
+        emblemType: "poramor",
+        synopsis: "Sentimentos à flor da pele, escolhas difíceis e a sofisticação do West Coast Swing traduzem em movimento os laços profundos e inesquecíveis de uma das maiores histórias da TV.",
+        cast: [
+          { name: "André", role: "Bailarino" },
+          { name: "Fabiano", role: "Bailarino" },
+          { name: "Jack Bezerra", role: "Bailarino(a)" },
+          { name: "Jack Silva", role: "Bailarino(a)" }
+        ]
+      },
+      {
+        number: 8,
+        channel: "08",
+        style: "Ballet Baby",
+        novela: "Sítio do Picapau Amarelo",
+        subtitle: "Fantasia & Pó de Pirlimpimpim",
+        song: "Trilha Sonora Carrossel",
+        logoUrl: "",
+        emblemType: "sitio",
+        synopsis: "Com uma pitada de pó de pirlimpimpim, nossas bailarinas baby abrem as porteiras da imaginação! Um capítulo encantador onde a inocência e a magia da literatura brasileira brilham no palco.",
+        cast: [
+          { name: "Elenco Infantil (Baby)", role: "Elenco" }
+        ]
+      },
+      {
+        number: 9,
+        channel: "09",
+        style: "Bachata",
+        novela: "Rebelde",
+        subtitle: "Elite Way School • Y Soy Rebelde!",
+        song: "Um poco de tu amor",
+        logoUrl: "",
+        emblemType: "rebelde",
+        synopsis: "Gravatas vermelhas, corações apaixonados e a nostalgia de uma geração inteira! A sensualidade envolvente da bachata dá um novo ritmo aos dramas e romances do Elite Way School.",
+        cast: [
+          { name: "Albertino", role: "Bailarino" },
+          { name: "Fabiano", role: "Bailarino" },
+          { name: "Hellen", role: "Bailarina" },
+          { name: "Nilce", role: "Bailarina" },
+          { name: "Victor", role: "Bailarino" },
+          { name: "Luana", role: "Bailarina" }
+        ]
+      },
+      {
+        number: 10,
+        channel: "10",
+        style: "Dança do Ventre",
+        novela: "O Clone",
+        subtitle: "Inshallah! • Mistério entre Dois Mundos",
+        song: "Azez Alaya",
+        logoUrl: "",
+        emblemType: "clone",
+        synopsis: "Entre os véus do Marrocos e as areias do tempo, cada ondulação conta uma história de amor eterno e destino. Um espetáculo hipnotizante de técnica, mistério e brilho dourado.",
+        cast: [
+          { name: "Júlia Arantes", role: "Bailarina" },
+          { name: "Allana Rafaely", role: "Bailarina" },
+          { name: "Tata Oliveira", role: "Bailarina" },
+          { name: "Taylla Braga", role: "Bailarina" },
+          { name: "Gabriel Martins", role: "Convidada Especial" }
+        ]
+      },
+      {
+        number: 11,
+        channel: "11",
+        style: "Forró 1",
+        novela: "Mar do Sertão",
+        subtitle: "Poesia Nordestina • Sol & Esperança",
+        song: "Sobradinho",
+        logoUrl: "",
+        emblemType: "sertao",
+        synopsis: "A força do povo sertanejo, a poesia das águas e a esperança que brota da terra ganham vida em um forró emocionante, cheio de calor humano e expressividade.",
+        cast: [
+          { name: "Nélio", role: "Bailarino" },
+          { name: "Auxiliadora", role: "Bailarina" },
+          { name: "Rosildo", role: "Bailarino" },
+          { name: "Cleide", role: "Bailarina" },
+          { name: "Fabiano", role: "Bailarino" },
+          { name: "Nilcinara", role: "Bailarina" }
+        ]
+      },
+      {
+        number: 12,
+        channel: "12",
+        style: "Bolero",
+        novela: "Paraíso",
+        subtitle: "Romance Sertanejo • Encontros da Alma",
+        song: "Deus e eu no sertão",
+        logoUrl: "",
+        emblemType: "paraiso",
+        synopsis: "No abraço sereno do bolero, o amor encontra seu refúgio. Uma interpretação sensível e poética sobre sintonia, entrega e a beleza simples das grandes paixões.",
+        cast: [
+          { name: "Albertino", role: "Bailarino" },
+          { name: "Anthoany", role: "Bailarino" }
+        ]
+      },
+      {
+        number: 13,
+        channel: "13",
+        style: "Pré Ballet",
+        novela: "Carinha de Anjo",
+        subtitle: "Ternura & Luz • Doce Harmonia",
+        song: "Trilha Sonora Carinha de Anjo",
+        logoUrl: "",
+        emblemType: "carinha",
+        synopsis: "Com delicadeza angelical e sorrisos iluminados, o Pré Ballet encanta a plateia em um capítulo repleto de graça, musicalidade e pureza cênica.",
+        cast: [
+          { name: "Elenco Infantil", role: "Elenco" }
+        ]
+      },
+      {
+        number: 14,
+        channel: "14",
+        style: "Salsa (profs.)",
+        novela: "Maria do Bairro",
+        subtitle: "Dramalhão Mexicano • Pura Paixão Latina!",
+        song: "Maria do Bairro",
+        logoUrl: "",
+        emblemType: "maria",
+        synopsis: "A rainha das novelas mexicanas chega com toda a intensidade latina! Os professores do No Compasso entregam velocidade, precisão e muito tempero em uma salsa arrebatadora.",
+        cast: [
+          { name: "Jake Bezerra", role: "Professor(a)" },
+          { name: "André", role: "Professor" },
+          { name: "Help", role: "Professor(a)" },
+          { name: "Hellen", role: "Professora" },
+          { name: "Tiago", role: "Professor" },
+          { name: "Jéssica", role: "Professora" }
+        ]
+      },
+      {
+        number: 15,
+        channel: "15",
+        style: "Ballet Adulto",
+        novela: "Salve Jorge",
+        subtitle: "Coragem & Superação • Além das Fronteiras",
+        song: "93 Millions",
+        logoUrl: "",
+        emblemType: "salvejorge",
+        synopsis: "A distância, a saudade e a força inabalável de quem luta pelo próprio destino. O Ballet Adulto emociona com linhas expressivas e interpretação dramática de tirar o fôlego.",
+        cast: [
+          { name: "Maria Elisa", role: "Bailarina" },
+          { name: "Késia", role: "Convidada Especial" }
+        ]
+      },
+      {
+        number: 16,
+        channel: "16",
+        style: "Forró 3",
+        novela: "Caminho das Índias",
+        subtitle: "Reprise Especial • Ritmo Envolvente",
+        song: "Você não vale nada",
+        logoUrl: "",
+        emblemType: "indias",
+        synopsis: "O sucesso da novela ganha uma nova leitura cheia de sintonia e carisma! Nossos convidados especiais trazem elegância, conexão e alegria para aquecer a reta final do espetáculo.",
+        cast: [
+          { name: "Sergio", role: "Convidado Especial" },
+          { name: "Neidinha", role: "Convidada Especial" }
+        ]
+      },
+      {
+        number: 17,
+        channel: "17",
+        style: "Samba",
+        novela: "Três Graças + Volta por Cima",
+        subtitle: "Último Capítulo • Gran Finale de Gala!",
+        song: "Pout-porri (Jura) + Volta por Cima",
+        logoUrl: "",
+        emblemType: "finale",
+        synopsis: "Todo grande folhetim merece um final apoteótico! O samba celebra a superação, o recomeço e a alegria de viver em um encerramento vibrante que levanta o público do Cine Teatro Recreio.",
+        cast: [
+          { name: "André", role: "Bailarino" },
+          { name: "Fabiano", role: "Bailarino" },
+          { name: "Jack Bezerra", role: "Bailarino(a)" },
+          { name: "Ana Meire", role: "Bailarina" },
+          { name: "Help", role: "Bailarino(a)" },
+          { name: "Albertino", role: "Bailarino" }
+        ]
+      }
+    ];
+
+    /**
+     * ==========================================================================
+     * 2. DIREÇÃO & COREÓGRAFOS (PRONTO PARA INSERIR FOTOS REAIS)
+     * ==========================================================================
+     * Basta preencher `photoUrl` com o caminho da foto (ex: "./assets/fotos/andre.jpg")
+     * para substituir o monograma dourado pela fotografia oficial.
+     */
+    const CHOREOGRAPHERS = [
+      {
+        name: "Direção Geral",
+        role: "No Compasso Studio",
+        initials: "NC",
+        photoUrl: ""
+      },
+      {
+        name: "André",
+        role: "Coreógrafo • Danças de Salão",
+        initials: "AN",
+        photoUrl: ""
+      },
+      {
+        name: "Hellen",
+        role: "Coreógrafa • Salão & Ritmos",
+        initials: "HE",
+        photoUrl: ""
+      },
+      {
+        name: "Jake Bezerra",
+        role: "Coreógrafo(a) • Salsa & West",
+        initials: "JB",
+        photoUrl: ""
+      },
+      {
+        name: "Help",
+        role: "Coreógrafo(a) • Samba & Salsa",
+        initials: "HP",
+        photoUrl: ""
+      },
+      {
+        name: "Tiago & Jéssica",
+        role: "Coreógrafos • Ritmos Latinos",
+        initials: "TJ",
+        photoUrl: ""
+      },
+      {
+        name: "Equipe Ballet & Jazz",
+        role: "Coreografia • Clássico & Jazz",
+        initials: "BJ",
+        photoUrl: ""
+      },
+      {
+        name: "Equipe Dança do Ventre",
+        role: "Coreografia • Danças Árabes",
+        initials: "DV",
+        photoUrl: ""
+      }
+    ];
+
+    /**
+     * ==========================================================================
+     * 3. GERADOR DE EMBLEMAS VETORIAIS EXCLUSIVOS PARA CADA NOVELA
+     * ==========================================================================
+     */
+    function getNovelaEmblemSVG(type, novelaTitle) {
+      const badges = {
+        avenida: `
+          <svg viewBox="0 0 220 84" class="w-48 h-20 mx-auto drop-shadow-[0_4px_12px_rgba(212,175,55,0.35)]">
+            <defs>
+              <linearGradient id="gAv" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#F6E27A"/><stop offset="50%" stop-color="#D4AF37"/><stop offset="100%" stop-color="#AA7C11"/>
+              </linearGradient>
+            </defs>
+            <rect x="14" y="12" width="192" height="60" rx="30" fill="#1E1E24" stroke="url(#gAv)" stroke-width="2.5"/>
+            <circle cx="48" cy="42" r="16" fill="none" stroke="url(#gAv)" stroke-width="2"/>
+            <path d="M48 22v6M48 56v6M28 42h6M62 42h6M34 28l4 4M58 52l4 4M62 28l-4 4M38 52l-4 4" stroke="#F6E27A" stroke-width="1.8" stroke-linecap="round"/>
+            <text x="126" y="38" text-anchor="middle" fill="#F6E27A" font-family="Cinzel, serif" font-size="11" font-weight="800" letter-spacing="2">AVENIDA</text>
+            <text x="126" y="54" text-anchor="middle" fill="#F8F6F2" font-family="Cinzel, serif" font-size="13" font-weight="900" letter-spacing="3">BRASIL</text>
+          </svg>`,
+        carrossel: `
+          <svg viewBox="0 0 220 84" class="w-48 h-20 mx-auto drop-shadow-[0_4px_12px_rgba(212,175,55,0.35)]">
+            <path d="M45 36 L110 12 L175 36 Z" fill="#4A0E1C" stroke="#F6E27A" stroke-width="2"/>
+            <line x1="65" y1="36" x2="65" y2="66" stroke="#D4AF37" stroke-width="2"/>
+            <line x1="110" y1="36" x2="110" y2="66" stroke="#F6E27A" stroke-width="2"/>
+            <line x1="155" y1="36" x2="155" y2="66" stroke="#D4AF37" stroke-width="2"/>
+            <rect x="42" y="64" width="136" height="10" rx="5" fill="#D4AF37"/>
+            <text x="110" y="54" text-anchor="middle" fill="#FFF3B0" font-family="Cinzel, serif" font-size="13" font-weight="900" letter-spacing="2.5">CARROSSEL</text>
+          </svg>`,
+        indias: `
+          <svg viewBox="0 0 220 84" class="w-48 h-20 mx-auto drop-shadow-[0_4px_12px_rgba(212,175,55,0.35)]">
+            <circle cx="110" cy="42" r="32" fill="#2B0710" stroke="#F6E27A" stroke-width="2"/>
+            <circle cx="110" cy="42" r="24" fill="none" stroke="#D4AF37" stroke-width="1.2" stroke-dasharray="3 3"/>
+            <polygon points="110,12 116,24 110,20 104,24" fill="#F6E27A"/>
+            <polygon points="110,72 116,60 110,64 104,60" fill="#F6E27A"/>
+            <text x="110" y="39" text-anchor="middle" fill="#F6E27A" font-family="Cinzel, serif" font-size="9" font-weight="700" letter-spacing="1.5">CAMINHO DAS</text>
+            <text x="110" y="53" text-anchor="middle" fill="#FFF3B0" font-family="Cinzel, serif" font-size="13" font-weight="900" letter-spacing="2">ÍNDIAS</text>
+          </svg>`,
+        cigana: `
+          <svg viewBox="0 0 220 84" class="w-48 h-20 mx-auto drop-shadow-[0_4px_12px_rgba(212,175,55,0.35)]">
+            <path d="M110 14 C128 28, 136 48, 110 70 C84 48, 92 28, 110 14 Z" fill="#6D162B" stroke="#F6E27A" stroke-width="2"/>
+            <circle cx="110" cy="44" r="9" fill="#D4AF37"/>
+            <text x="110" y="38" text-anchor="middle" fill="#FFF3B0" font-family="Cinzel, serif" font-size="10" font-weight="800" letter-spacing="2">EXPLODE</text>
+            <text x="110" y="54" text-anchor="middle" fill="#F6E27A" font-family="Cinzel, serif" font-size="12" font-weight="900" letter-spacing="2">CORAÇÃO</text>
+          </svg>`,
+        sucata: `
+          <svg viewBox="0 0 220 84" class="w-48 h-20 mx-auto drop-shadow-[0_4px_12px_rgba(212,175,55,0.35)]">
+            <path d="M55 48 L68 22 L92 38 L110 16 L128 38 L152 22 L165 48 Z" fill="none" stroke="#F6E27A" stroke-width="2.2" stroke-linejoin="round"/>
+            <rect x="44" y="50" width="132" height="22" rx="6" fill="#2B0710" stroke="#D4AF37" stroke-width="1.8"/>
+            <text x="110" y="65" text-anchor="middle" fill="#F6E27A" font-family="Cinzel, serif" font-size="10.5" font-weight="900" letter-spacing="1.5">RAINHA DA SUCATA</text>
+          </svg>`,
+        forca: `
+          <svg viewBox="0 0 220 84" class="w-48 h-20 mx-auto drop-shadow-[0_4px_12px_rgba(212,175,55,0.35)]">
+            <path d="M35 55 Q72 25 110 55 T185 55" fill="none" stroke="#F6E27A" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M45 64 Q80 38 110 64 T175 64" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
+            <text x="110" y="34" text-anchor="middle" fill="#FFF3B0" font-family="Cinzel, serif" font-size="11.5" font-weight="900" letter-spacing="2">A FORÇA DO QUERER</text>
+          </svg>`,
+        poramor: `
+          <svg viewBox="0 0 220 84" class="w-48 h-20 mx-auto drop-shadow-[0_4px_12px_rgba(212,175,55,0.35)]">
+            <path d="M110 68 C75 46, 70 22, 92 22 C102 22, 108 29, 110 34 C112 29, 118 22, 128 22 C150 22, 145 46, 110 68 Z" fill="#4A0E1C" stroke="#F6E27A" stroke-width="2"/>
+            <text x="110" y="47" text-anchor="middle" fill="#FFF3B0" font-family="Playfair Display, serif" font-style="italic" font-size="14" font-weight="700">Por Amor</text>
+          </svg>`,
+        sitio: `
+          <svg viewBox="0 0 220 84" class="w-48 h-20 mx-auto drop-shadow-[0_4px_12px_rgba(212,175,55,0.35)]">
+            <polygon points="110,10 118,30 140,32 123,46 128,68 110,56 92,68 97,46 80,32 102,30" fill="#2B0710" stroke="#F6E27A" stroke-width="2"/>
+            <text x="110" y="45" text-anchor="middle" fill="#FFF3B0" font-family="Cinzel, serif" font-size="10" font-weight="900" letter-spacing="1.5">SÍTIO DO PICAPAU</text>
+          </svg>`,
+        rebelde: `
+          <svg viewBox="0 0 220 84" class="w-48 h-20 mx-auto drop-shadow-[0_4px_12px_rgba(212,175,55,0.35)]">
+            <path d="M75 14 H145 V44 C145 62, 110 74, 110 74 C110 74, 75 62, 75 44 Z" fill="#4A0E1C" stroke="#F6E27A" stroke-width="2.4"/>
+            <path d="M98 10 L104 4 L110 9 L116 4 L122 10" fill="none" stroke="#F6E27A" stroke-width="2"/>
+            <text x="110" y="38" text-anchor="middle" fill="#F8F6F2" font-family="Cinzel, serif" font-size="13" font-weight="900" letter-spacing="3">R B D</text>
+            <text x="110" y="54" text-anchor="middle" fill="#F6E27A" font-family="Cinzel, serif" font-size="9" font-weight="800" letter-spacing="2">REBELDE</text>
+          </svg>`,
+        clone: `
+          <svg viewBox="0 0 220 84" class="w-48 h-20 mx-auto drop-shadow-[0_4px_12px_rgba(212,175,55,0.35)]">
+            <path d="M75 70 V38 C75 20, 110 12, 110 12 C110 12, 145 20, 145 38 V70 Z" fill="#2B0710" stroke="#F6E27A" stroke-width="2.2"/>
+            <path d="M100 26 H120 L110 42 L120 58 H100 L110 42 Z" fill="none" stroke="#D4AF37" stroke-width="1.6"/>
+            <text x="110" y="46" text-anchor="middle" fill="#FFF3B0" font-family="Cinzel, serif" font-size="13" font-weight="900" letter-spacing="2.5">O CLONE</text>
+          </svg>`,
+        sertao: `
+          <svg viewBox="0 0 220 84" class="w-48 h-20 mx-auto drop-shadow-[0_4px_12px_rgba(212,175,55,0.35)]">
+            <circle cx="110" cy="44" r="24" fill="#4A0E1C" stroke="#F6E27A" stroke-width="2"/>
+            <line x1="52" y1="62" x2="168" y2="62" stroke="#D4AF37" stroke-width="2"/>
+            <text x="110" y="47" text-anchor="middle" fill="#FFF3B0" font-family="Cinzel, serif" font-size="11" font-weight="900" letter-spacing="1.8">MAR DO SERTÃO</text>
+          </svg>`,
+        paraiso: `
+          <svg viewBox="0 0 220 84" class="w-48 h-20 mx-auto drop-shadow-[0_4px_12px_rgba(212,175,55,0.35)]">
+            <path d="M40 58 Q110 14 180 58" fill="none" stroke="#F6E27A" stroke-width="2.2"/>
+            <path d="M60 64 Q110 28 160 64" fill="none" stroke="#D4AF37" stroke-width="1.4"/>
+            <text x="110" y="54" text-anchor="middle" fill="#FFF3B0" font-family="Cinzel, serif" font-size="13" font-weight="900" letter-spacing="3">PARAÍSO</text>
+          </svg>`,
+        carinha: `
+          <svg viewBox="0 0 220 84" class="w-48 h-20 mx-auto drop-shadow-[0_4px_12px_rgba(212,175,55,0.35)]">
+            <ellipse cx="110" cy="18" rx="22" ry="6" fill="none" stroke="#F6E27A" stroke-width="2.2"/>
+            <path d="M55 44 C70 30, 88 36, 94 48 C82 54, 65 54, 55 44 Z" fill="#4A0E1C" stroke="#D4AF37" stroke-width="1.6"/>
+            <path d="M165 44 C150 30, 132 36, 126 48 C138 54, 155 54, 165 44 Z" fill="#4A0E1C" stroke="#D4AF37" stroke-width="1.6"/>
+            <text x="110" y="68" text-anchor="middle" fill="#FFF3B0" font-family="Cinzel, serif" font-size="10.5" font-weight="900" letter-spacing="1.8">CARINHA DE ANJO</text>
+          </svg>`,
+        maria: `
+          <svg viewBox="0 0 220 84" class="w-48 h-20 mx-auto drop-shadow-[0_4px_12px_rgba(212,175,55,0.35)]">
+            <rect x="34" y="18" width="152" height="48" rx="12" fill="#4A0E1C" stroke="#F6E27A" stroke-width="2.2"/>
+            <text x="110" y="40" text-anchor="middle" fill="#FFF3B0" font-family="Cinzel, serif" font-size="12" font-weight="900" letter-spacing="2">MARIA</text>
+            <text x="110" y="55" text-anchor="middle" fill="#F6E27A" font-family="Cinzel, serif" font-size="10.5" font-weight="800" letter-spacing="2">DO BAIRRO</text>
+          </svg>`,
+        salvejorge: `
+          <svg viewBox="0 0 220 84" class="w-48 h-20 mx-auto drop-shadow-[0_4px_12px_rgba(212,175,55,0.35)]">
+            <polygon points="110,10 152,26 144,62 110,74 76,62 68,26" fill="#2B0710" stroke="#F6E27A" stroke-width="2.2"/>
+            <text x="110" y="41" text-anchor="middle" fill="#F6E27A" font-family="Cinzel, serif" font-size="10.5" font-weight="800" letter-spacing="2">SALVE</text>
+            <text x="110" y="55" text-anchor="middle" fill="#FFF3B0" font-family="Cinzel, serif" font-size="12" font-weight="900" letter-spacing="2">JORGE</text>
+          </svg>`,
+        finale: `
+          <svg viewBox="0 0 220 84" class="w-48 h-20 mx-auto drop-shadow-[0_4px_12px_rgba(212,175,55,0.45)]">
+            <rect x="24" y="14" width="172" height="56" rx="28" fill="#4A0E1C" stroke="#F6E27A" stroke-width="2.5"/>
+            <text x="110" y="37" text-anchor="middle" fill="#F6E27A" font-family="Cinzel, serif" font-size="9.5" font-weight="800" letter-spacing="2">★ ÚLTIMO CAPÍTULO ★</text>
+            <text x="110" y="54" text-anchor="middle" fill="#FFF3B0" font-family="Cinzel, serif" font-size="11.5" font-weight="900" letter-spacing="1.5">GRAN FINALE SAMBA</text>
+          </svg>`
+      };
+
+      return badges[type] || badges.avenida;
+    }
+
+    /**
+     * ==========================================================================
+     * 4. ESTADO DA APLICAÇÃO & SINTETIZADOR DE ÁUDIO RETRÔ DE TV (WEB AUDIO API)
+     * ==========================================================================
+     */
+    const state = {
+      currentIndex: 0,
+      activeView: "chapters", // "chapters" | "credits"
+      soundEnabled: true,
+      castFilter: "all",
+      castSearch: ""
+    };
+
+    let audioCtx = null;
+
+    function initAudioContext() {
+      if (!audioCtx) {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioContextClass) {
+          audioCtx = new AudioContextClass();
+        }
+      }
+      if (audioCtx && audioCtx.state === "suspended") {
+        audioCtx.resume();
+      }
+    }
+
+    /**
+     * Gera um clique sutil de controle remoto + rápido chiado analógico de sintonia
+     * sem depender de nenhum arquivo de áudio externo.
+     */
+    function playChannelZapSound(isPowerOn = false) {
+      if (!state.soundEnabled) return;
+      try {
+        initAudioContext();
+        if (!audioCtx) return;
+
+        const now = audioCtx.currentTime;
+
+        // 1. Clique mecânico do controle remoto
+        const osc = audioCtx.createOscillator();
+        const oscGain = audioCtx.createGain();
+        osc.type = isPowerOn ? "sine" : "triangle";
+        osc.frequency.setValueAtTime(isPowerOn ? 320 : 680, now);
+        osc.frequency.exponentialRampToValueAtTime(isPowerOn ? 640 : 140, now + (isPowerOn ? 0.22 : 0.06));
+        oscGain.gain.setValueAtTime(0.08, now);
+        oscGain.gain.exponentialRampToValueAtTime(0.001, now + (isPowerOn ? 0.24 : 0.07));
+        osc.connect(oscGain);
+        oscGain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + (isPowerOn ? 0.25 : 0.08));
+
+        // 2. Breve ruído branco de sintonia CRT (140ms)
+        const bufferSize = Math.floor(audioCtx.sampleRate * 0.14);
+        const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const data = noiseBuffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          data[i] = (Math.random() * 2 - 1) * 0.35;
+        }
+        const noise = audioCtx.createBufferSource();
+        noise.buffer = noiseBuffer;
+
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = "bandpass";
+        filter.frequency.value = 1600;
+
+        const noiseGain = audioCtx.createGain();
+        noiseGain.gain.setValueAtTime(0.045, now);
+        noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.14);
+
+        noise.connect(filter);
+        filter.connect(noiseGain);
+        noiseGain.connect(audioCtx.destination);
+        noise.start(now);
+      } catch (err) {
+        // Silencia caso o navegador bloqueie áudio automático
+      }
+    }
+
+    /**
+     * ==========================================================================
+     * 5. EFEITO VISUAL DE CHUVISCO DE TV (250ms) NA TROCA DE CANAL
+     * ==========================================================================
+     */
+    function triggerTVStaticEffect(callback) {
+      const canvas = document.getElementById("tv-static-canvas");
+      const led = document.getElementById("remote-led");
+      if (!canvas) {
+        if (callback) callback();
+        return;
+      }
+
+      // Pisca o LED vermelho do controle remoto
+      if (led) {
+        led.classList.remove("bg-red-800");
+        led.classList.add("bg-red-500", "shadow-[0_0_10px_#ef4444]");
+        setTimeout(() => {
+          led.classList.add("bg-red-800");
+          led.classList.remove("bg-red-500", "shadow-[0_0_10px_#ef4444]");
+        }, 220);
+      }
+
+      const ctx = canvas.getContext("2d");
+      canvas.width = Math.min(window.innerWidth, 480);
+      canvas.height = Math.min(window.innerHeight, 800);
+      canvas.style.opacity = "0.42";
+
+      let frameId = null;
+      const startTime = performance.now();
+      const duration = 240; // ~250ms de chuvisco analógico
+
+      function drawNoise(now) {
+        const elapsed = now - startTime;
+        if (elapsed >= duration) {
+          cancelAnimationFrame(frameId);
+          canvas.style.opacity = "0";
+          if (callback) callback();
+          return;
+        }
+
+        const imgData = ctx.createImageData(canvas.width, canvas.height);
+        const buffer = new Uint32Array(imgData.data.buffer);
+        for (let i = 0; i < buffer.length; i += 2) {
+          const shade = (Math.random() * 255) | 0;
+          const color = (255 << 24) | (shade << 16) | (shade << 8) | shade;
+          buffer[i] = color;
+          if (i + 1 < buffer.length) buffer[i + 1] = color;
+        }
+        ctx.putImageData(imgData, 0, 0);
+        frameId = requestAnimationFrame(drawNoise);
+      }
+
+      frameId = requestAnimationFrame(drawNoise);
+    }
+
+    /**
+     * ==========================================================================
+     * 6. NOTIFICAÇÃO TOAST (ZERO ALERT())
+     * ==========================================================================
+     */
+    let toastTimer = null;
+    function showToast(message) {
+      const banner = document.getElementById("toast-banner");
+      const msgEl = document.getElementById("toast-message");
+      if (!banner || !msgEl) return;
+
+      msgEl.textContent = message;
+      banner.classList.remove("opacity-0", "translate-y-[-12px]");
+      banner.classList.add("opacity-100", "translate-y-0");
+
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        banner.classList.add("opacity-0", "translate-y-[-12px]");
+        banner.classList.remove("opacity-100", "translate-y-0");
+      }, 3000);
+    }
+
+    /**
+     * ==========================================================================
+     * 7. RENDERIZAÇÃO DO CAPÍTULO ATUAL NA TELA DA TV
+     * ==========================================================================
+     */
+    function renderChapter(index) {
+      const chapter = CHAPTERS[index];
+      if (!chapter) return;
+
+      const total = CHAPTERS.length;
+      const animatedWrapper = document.getElementById("chapter-animated-content");
+
+      // Reinicia animação suave de entrada
+      animatedWrapper.classList.remove("animate-channel-in");
+      void animatedWrapper.offsetWidth;
+      animatedWrapper.classList.add("animate-channel-in");
+
+      // Atualiza cabeçalho de canal
+      document.getElementById("channel-badge").textContent = `CANAL ${chapter.channel}`;
+      document.getElementById("chapter-counter").textContent = `CAPÍTULO ${chapter.channel} DE ${String(total).padStart(2, "0")}`;
+      document.getElementById("return-cap-num").textContent = chapter.channel;
+
+      // Emblema / Logo da Novela (Suporta PNG real com fallback SVG exclusivo)
+      const logoContainer = document.getElementById("novela-logo-container");
+      if (chapter.logoUrl && chapter.logoUrl.trim() !== "") {
+        logoContainer.innerHTML = `
+          <img
+            src="${chapter.logoUrl}"
+            alt="Logo da novela ${chapter.novela}"
+            class="max-h-24 w-auto object-contain mx-auto drop-shadow-[0_4px_14px_rgba(212,175,55,0.4)]"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <div style="display:none;">${getNovelaEmblemSVG(chapter.emblemType, chapter.novela)}</div>
+        `;
+      } else {
+        logoContainer.innerHTML = getNovelaEmblemSVG(chapter.emblemType, chapter.novela);
+      }
+
+      // Estilo, Título, Subtítulo, Música e Sinopse
+      document.getElementById("chapter-style-badge").textContent = chapter.style;
+      document.getElementById("chapter-novela-title").textContent = chapter.novela;
+      document.getElementById("chapter-subtitle").textContent = chapter.subtitle;
+      document.getElementById("chapter-song").textContent = `"${chapter.song}"`;
+      document.getElementById("chapter-synopsis").textContent = chapter.synopsis;
+
+      // Renderiza Elenco em Cena
+      const castListEl = document.getElementById("chapter-cast-list");
+      const castCountEl = document.getElementById("cast-count-label");
+      castCountEl.textContent = chapter.cast.length === 1 && chapter.cast[0].role === "Elenco"
+        ? "Grupo em cena"
+        : `${chapter.cast.length} ${chapter.cast.length === 1 ? "artista" : "artistas"}`;
+
+      castListEl.innerHTML = chapter.cast.map(member => {
+        const isSpecial = member.role.toLowerCase().includes("convidad");
+        const isProf = member.role.toLowerCase().includes("professor");
+        if (isSpecial) {
+          return `
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-gold-dark/30 to-marsala border border-gold-light/60 text-xs font-bold text-gold-cream shadow-sm">
+              <span class="text-gold-light">★</span>
+              <span>${member.name}</span>
+              <span class="text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-gold-mid text-graphite-dark font-extrabold">Especial</span>
+            </span>
+          `;
+        }
+        if (isProf) {
+          return `
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-graphite-light/90 border border-gold-mid/45 text-xs font-semibold text-ice">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold-light"></span>
+              <span>${member.name}</span>
+              <span class="text-[9px] uppercase text-gold-light/90 font-bold">Prof.</span>
+            </span>
+          `;
+        }
+        return `
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-graphite-dark/90 border border-white/15 text-xs font-medium text-ice/95">
+            <span class="w-1.5 h-1.5 rounded-full bg-gold-mid"></span>
+            <span>${member.name}</span>
+          </span>
+        `;
+      }).join("");
+
+      // Renderiza Chamada "Cenas do Próximo Capítulo..."
+      const teaserEl = document.getElementById("next-chapter-teaser");
+      if (index < total - 1) {
+        const nextChap = CHAPTERS[index + 1];
+        teaserEl.innerHTML = `
+          <div class="bg-graphite-dark/95 border border-gold-mid/35 rounded-2xl p-3 flex items-center justify-between gap-3">
+            <div class="min-w-0">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-gold-light font-extrabold flex items-center gap-1">
+                <span>📺</span> Cenas do Próximo Capítulo...
+              </p>
+              <p class="font-cinzel text-sm font-bold text-ice truncate mt-0.5">
+                Cap. ${nextChap.channel}: ${nextChap.novela}
+              </p>
+              <p class="text-[11px] text-graphite-muted truncate">
+                Estilo: <span class="text-ice/85 font-medium">${nextChap.style}</span>
+              </p>
+            </div>
+            <button
+              type="button"
+              onclick="goToChapter(${index + 1})"
+              class="shrink-0 px-3 py-2.5 rounded-xl bg-marsala-light hover:bg-marsala border border-gold-mid/50 text-gold-light text-xs font-bold transition cursor-pointer"
+            >
+              Assistir ⏭
+            </button>
+          </div>
+        `;
+      } else {
+        // Último Capítulo (17)
+        teaserEl.innerHTML = `
+          <div class="bg-gradient-to-r from-marsala to-graphite-dark border border-gold-light/50 rounded-2xl p-3.5 text-center space-y-2.5">
+            <p class="text-[10px] uppercase tracking-[0.24em] text-gold-light font-extrabold">
+              ★ Fim da Programação • Obrigado por Assistir! ★
+            </p>
+            <p class="text-xs text-ice/90">
+              Aplausos para todo o elenco do <strong>No Compasso Studio de Dança</strong>!
+            </p>
+            <div class="flex gap-2 justify-center pt-1">
+              <button
+                type="button"
+                onclick="switchView('credits')"
+                class="gold-foil-btn px-3.5 py-2 rounded-xl text-xs font-extrabold cursor-pointer"
+              >
+                🎬 Ver Ficha Técnica
+              </button>
+              <button
+                type="button"
+                onclick="goToChapter(0)"
+                class="px-3.5 py-2 rounded-xl bg-graphite-dark border border-gold-mid/40 text-xs font-bold text-gold-light cursor-pointer"
+              >
+                ↺ Cap. 01
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
+      // Atualiza destaque na Grade de Canais
+      renderChannelGuide();
+    }
+
+    /**
+     * ==========================================================================
+     * 8. NAVEGAÇÃO ENTRE CAPÍTULOS & TROCA DE VISÃO (TV vs FICHA TÉCNICA)
+     * ==========================================================================
+     */
+    function goToChapter(newIndex) {
+      const total = CHAPTERS.length;
+      if (newIndex < 0) newIndex = total - 1;
+      if (newIndex >= total) newIndex = 0;
+
+      playChannelZapSound(false);
+      triggerTVStaticEffect(() => {
+        state.currentIndex = newIndex;
+        if (state.activeView !== "chapters") {
+          switchView("chapters", true);
+        }
+        renderChapter(state.currentIndex);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+
+    function switchView(viewName, skipStatic = false) {
+      state.activeView = viewName;
+      const chaptersView = document.getElementById("view-chapters");
+      const creditsView = document.getElementById("view-credits");
+      const remoteCreditsLabel = document.getElementById("remote-credits-label");
+
+      const applySwitch = () => {
+        if (viewName === "credits") {
+          chaptersView.classList.add("hidden");
+          creditsView.classList.remove("hidden");
+          remoteCreditsLabel.textContent = "Ver TV";
+        } else {
+          creditsView.classList.add("hidden");
+          chaptersView.classList.remove("hidden");
+          remoteCreditsLabel.textContent = "Ficha Téc.";
+        }
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
+
+      if (skipStatic) {
+        applySwitch();
+      } else {
+        playChannelZapSound(false);
+        triggerTVStaticEffect(applySwitch);
+      }
+    }
+
+    /**
+     * ==========================================================================
+     * 9. GRADE DE CANAIS (MODAL / DRAWER 01 A 17)
+     * ==========================================================================
+     */
+    function renderChannelGuide() {
+      const listEl = document.getElementById("channel-guide-list");
+      if (!listEl) return;
+
+      listEl.innerHTML = CHAPTERS.map((chap, idx) => {
+        const isCurrent = idx === state.currentIndex;
+        return `
+          <button
+            type="button"
+            onclick="selectChannelFromGuide(${idx})"
+            class="text-left p-3 rounded-2xl border transition flex items-center gap-3 cursor-pointer ${
+              isCurrent
+                ? "bg-marsala border-gold-light shadow-gold-glow"
+                : "bg-graphite/90 border-gold-mid/20 hover:border-gold-mid/60"
+            }"
+          >
+            <div class="w-10 h-10 rounded-xl flex flex-col items-center justify-center shrink-0 font-cinzel font-black text-xs ${
+              isCurrent
+                ? "bg-gold-light text-graphite-dark"
+                : "bg-graphite-dark border border-gold-mid/35 text-gold-light"
+            }">
+              <span class="text-[8px] font-sans uppercase tracking-wider opacity-80">CH</span>
+              <span>${chap.channel}</span>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center justify-between gap-1">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-gold-light truncate">
+                  ${chap.style}
+                </span>
+                ${isCurrent ? '<span class="text-[9px] px-1.5 py-0.2 rounded bg-red-600 text-white font-bold uppercase shrink-0">No Ar</span>' : ""}
+              </div>
+              <p class="font-cinzel text-xs sm:text-sm font-bold text-ice truncate mt-0.5">
+                ${chap.novela}
+              </p>
+            </div>
+          </button>
+        `;
+      }).join("");
+    }
+
+    function openChannelGuide() {
+      renderChannelGuide();
+      document.getElementById("channel-guide-modal").classList.remove("hidden");
+    }
+
+    function closeChannelGuide() {
+      document.getElementById("channel-guide-modal").classList.add("hidden");
+    }
+
+    function selectChannelFromGuide(index) {
+      closeChannelGuide();
+      goToChapter(index);
+    }
+
+    /**
+     * ==========================================================================
+     * 10. FICHA TÉCNICA: COREÓGRAFOS & ELENCO COMPLETO AGREGADO
+     * ==========================================================================
+     */
+    function renderChoreographers() {
+      const grid = document.getElementById("choreographers-grid");
+      if (!grid) return;
+
+      grid.innerHTML = CHOREOGRAPHERS.map(person => {
+        const hasPhoto = person.photoUrl && person.photoUrl.trim() !== "";
+        return `
+          <div class="bg-graphite/90 border border-gold-mid/25 rounded-2xl p-3 flex flex-col items-center text-center">
+            <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-gold-dark via-gold-light to-gold-mid mb-2 shadow-md">
+              <div class="w-full h-full rounded-full bg-marsala-dark flex items-center justify-center overflow-hidden relative">
+                ${
+                  hasPhoto
+                    ? `<img src="${person.photoUrl}" alt="${person.name}" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />`
+                    : ""
+                }
+                <span style="${hasPhoto ? "display:none;" : ""}" class="w-full h-full flex items-center justify-center font-cinzel font-black text-base gold-foil-text">
+                  ${person.initials}
+                </span>
+              </div>
+            </div>
+            <p class="text-xs font-bold text-ice leading-tight">${person.name}</p>
+            <p class="text-[10px] text-graphite-muted mt-0.5 leading-snug">${person.role}</p>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function buildAggregatedCast() {
+      const map = new Map();
+
+      CHAPTERS.forEach((chap, chapIndex) => {
+        chap.cast.forEach(member => {
+          const key = member.name.trim();
+          if (!map.has(key)) {
+            map.set(key, {
+              name: key,
+              isSpecial: member.role.toLowerCase().includes("convidad"),
+              isKids: key.toLowerCase().includes("infantil"),
+              appearances: []
+            });
+          }
+          const entry = map.get(key);
+          if (member.role.toLowerCase().includes("convidad")) {
+            entry.isSpecial = true;
+          }
+          entry.appearances.push({
+            chapIndex,
+            channel: chap.channel,
+            novela: chap.novela,
+            style: chap.style
+          });
+        });
+      });
+
+      return Array.from(map.values()).sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
+    }
+
+    function renderFullCastList() {
+      const container = document.getElementById("full-cast-list");
+      if (!container) return;
+
+      const allDancers = buildAggregatedCast();
+      const query = state.castSearch.trim().toLowerCase();
+
+      const filtered = allDancers.filter(dancer => {
+        if (state.castFilter === "special" && !dancer.isSpecial) return false;
+        if (state.castFilter === "kids" && !dancer.isKids) return false;
+
+        if (query) {
+          const matchName = dancer.name.toLowerCase().includes(query);
+          const matchNovela = dancer.appearances.some(
+            app => app.novela.toLowerCase().includes(query) || app.style.toLowerCase().includes(query)
+          );
+          return matchName || matchNovela;
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-6 text-xs text-graphite-muted">
+            Nenhum artista encontrado para "${state.castSearch}".
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(dancer => {
+        const initials = dancer.name
+          .split(" ")
+          .slice(0, 2)
+          .map(w => w[0])
+          .join("")
+          .toUpperCase();
+
+        return `
+          <div class="bg-graphite/95 border ${dancer.isSpecial ? "border-gold-mid/55" : "border-white/10"} rounded-2xl p-3 flex items-start gap-3">
+            <div class="w-10 h-10 rounded-full ${dancer.isSpecial ? "bg-gradient-to-tr from-gold-dark to-gold-light text-graphite-dark" : "bg-marsala border border-gold-mid/40 text-gold-light"} font-cinzel font-black text-xs flex items-center justify-center shrink-0 mt-0.5">
+              ${initials}
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center flex-wrap gap-1.5">
+                <p class="text-xs sm:text-sm font-bold text-ice">${dancer.name}</p>
+                ${
+                  dancer.isSpecial
+                    ? '<span class="text-[9px] px-2 py-0.5 rounded-full bg-gold-mid/20 border border-gold-light/50 text-gold-light font-bold uppercase">★ Convidado(a) Especial</span>'
+                    : ""
+                }
+              </div>
+              <div class="flex flex-wrap gap-1.5 mt-2">
+                ${dancer.appearances
+                  .map(
+                    app => `
+                    <button
+                      type="button"
+                      onclick="goToChapter(${app.chapIndex})"
+                      class="text-left px-2 py-1 rounded-lg bg-marsala-dark hover:bg-marsala border border-gold-mid/30 text-[10px] text-ice/90 transition cursor-pointer"
+                    >
+                      <span class="text-gold-light font-bold">Cap. ${app.channel}</span> • ${app.novela} (${app.style})
+                    </button>
+                  `
+                  )
+                  .join("")}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    /**
+     * ==========================================================================
+     * 11. COMPARTILHAMENTO SEGURO (SEM NAVIGATOR.CLIPBOARD QUE FALHA EM IFRAME)
+     * ==========================================================================
+     */
+    function copyProgramLink() {
+      const shareUrl = window.location.href;
+      const textArea = document.createElement("textarea");
+      textArea.value = `🎭 Confira o Programa Digital da Mostra NOVELAS: No compasso da sua tela — No Compasso Studio de Dança! ${shareUrl}`;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-9999px";
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand("copy");
+        showToast("Link do programa copiado! Compartilhe com a plateia.");
+      } catch (err) {
+        showToast("Mostra NOVELAS: No compasso da sua tela • Cine Teatro Recreio");
+      }
+      document.body.removeChild(textArea);
+    }
+
+    /**
+     * ==========================================================================
+     * 12. INICIALIZAÇÃO & EVENT LISTENERS (TOQUE, SWIPE, TECLADO & CONTROLE)
+     * ==========================================================================
+     */
+    window.addEventListener("DOMContentLoaded", () => {
+      // Botão Ligar TV / Entrar no Ar
+      document.getElementById("btn-power-on").addEventListener("click", () => {
+        playChannelZapSound(true);
+        triggerTVStaticEffect(() => {
+          document.getElementById("intro-screen").classList.add("hidden");
+          document.getElementById("main-app").classList.remove("hidden");
+          document.getElementById("remote-control-bar").classList.remove("hidden");
+          renderChapter(0);
+          renderChoreographers();
+          renderFullCastList();
+        });
+      });
+
+      // Botões do Controle Remoto
+      document.getElementById("btn-prev-chapter").addEventListener("click", () => {
+        goToChapter(state.currentIndex - 1);
+      });
+
+      document.getElementById("btn-next-chapter").addEventListener("click", () => {
+        goToChapter(state.currentIndex + 1);
+      });
+
+      document.getElementById("btn-open-guide").addEventListener("click", openChannelGuide);
+      document.getElementById("btn-close-guide").addEventListener("click", closeChannelGuide);
+
+      // Fechar modal clicando fora do painel
+      document.getElementById("channel-guide-modal").addEventListener("click", e => {
+        if (e.target.id === "channel-guide-modal") {
+          closeChannelGuide();
+        }
+      });
+
+      // Alternar Ficha Técnica
+      document.getElementById("btn-toggle-credits").addEventListener("click", () => {
+        switchView(state.activeView === "credits" ? "chapters" : "credits");
+      });
+
+      document.getElementById("btn-back-to-tv").addEventListener("click", () => {
+        switchView("chapters");
+      });
+
+      // Toggle de Som
+      document.getElementById("btn-toggle-sound").addEventListener("click", () => {
+        state.soundEnabled = !state.soundEnabled;
+        document.getElementById("icon-sound-on").classList.toggle("hidden", !state.soundEnabled);
+        document.getElementById("icon-sound-off").classList.toggle("hidden", state.soundEnabled);
+        showToast(state.soundEnabled ? "Som de sintonia da TV ativado" : "Som de sintonia silenciado");
+      });
+
+      // Compartilhar
+      document.getElementById("btn-share").addEventListener("click", copyProgramLink);
+
+      // Busca e filtros na Ficha Técnica
+      document.getElementById("cast-search-input").addEventListener("input", e => {
+        state.castSearch = e.target.value;
+        renderFullCastList();
+      });
+
+      document.querySelectorAll(".cast-filter-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          state.castFilter = btn.dataset.filter;
+          document.querySelectorAll(".cast-filter-btn").forEach(b => {
+            b.classList.remove("bg-gold-mid", "text-graphite-dark", "font-bold");
+            b.classList.add("bg-graphite", "border", "border-gold-mid/30", "text-ice/85", "font-semibold");
+          });
+          btn.classList.remove("bg-graphite", "border", "border-gold-mid/30", "text-ice/85", "font-semibold");
+          btn.classList.add("bg-gold-mid", "text-graphite-dark", "font-bold");
+          renderFullCastList();
+        });
+      });
+
+      // Suporte a Gestos Touch (Swipe Horizontal na Tela da Novela)
+      const chapterCard = document.getElementById("chapter-card");
+      let touchStartX = 0;
+      let touchStartY = 0;
+
+      chapterCard.addEventListener("touchstart", e => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+      }, { passive: true });
+
+      chapterCard.addEventListener("touchend", e => {
+        const deltaX = e.changedTouches[0].screenX - touchStartX;
+        const deltaY = e.changedTouches[0].screenY - touchStartY;
+
+        if (Math.abs(deltaX) > 55 && Math.abs(deltaX) > Math.abs(deltaY) * 1.3) {
+          if (deltaX < 0) {
+            goToChapter(state.currentIndex + 1);
+          } else {
+            goToChapter(state.currentIndex - 1);
+          }
+        }
+      }, { passive: true });
+
+      // Suporte a Teclado (Setas Esquerda/Direita)
+      document.addEventListener("keydown", e => {
+        if (document.getElementById("main-app").classList.contains("hidden")) return;
+        if (document.activeElement && document.activeElement.tagName === "INPUT") return;
+
+        if (e.key === "ArrowRight") {
+          goToChapter(state.currentIndex + 1);
+        } else if (e.key === "ArrowLeft") {
+          goToChapter(state.currentIndex - 1);
+        } else if (e.key === "Escape") {
+          closeChannelGuide();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
