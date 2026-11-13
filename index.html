@@ -425,10 +425,10 @@
         class="crt-screen crt-scanlines gold-border-card rounded-b-3xl p-4 sm:p-5 flex-1 flex flex-col justify-between relative overflow-hidden"
       >
         <div id="chapter-animated-content" class="relative z-20 space-y-4">
-          <!-- Emblema / Logo Estilizado da Novela -->
+          <!-- Emblema / Logo Oficial da Novela -->
           <div class="flex flex-col items-center text-center pt-1">
-            <div id="novela-logo-container" class="w-full max-w-[260px] min-h-[96px] flex items-center justify-center mb-2">
-              <!-- O emblema SVG ou PNG da novela é injetado dinamicamente via JS -->
+            <div id="novela-logo-container" class="w-full max-w-[270px] min-h-[104px] flex items-center justify-center mb-2.5">
+              <!-- A logo PNG (1.png a 17.png) ou o emblema SVG reserva é injetado dinamicamente via JS -->
             </div>
 
             <!-- Tag de Estilo de Dança -->
@@ -734,14 +734,8 @@
   <script>
     /**
      * ==========================================================================
-     * 1. BANCO DE DADOS DO PROGRAMA (EDITÁVEL FACILMENTE PARA GITHUB / VERCEL)
+     * 1. BANCO DE DADOS DO PROGRAMA (COM LOGOS 1.png A 17.png VINCULADAS)
      * ==========================================================================
-     * Dica para o organizador:
-     * - Para colocar uma logo oficial em PNG de alguma novela, basta preencher o
-     *   campo `logoUrl` (ex: "./assets/logos/avenida-brasil.png"). Enquanto estiver
-     *   vazio (""), o sistema gera automaticamente um emblema exclusivo em SVG!
-     * - Na seção `CHOREOGRAPHERS`, basta adicionar o caminho da foto em `photoUrl`
-     *   (ex: "./assets/equipe/nome.jpg") para exibir a fotografia real na moldura.
      */
     const CHAPTERS = [
       {
@@ -751,7 +745,7 @@
         novela: "Avenida Brasil",
         subtitle: "Abertura de Horário Nobre • Oi, Oi, Oi!",
         song: "Vem dançar com tudo",
-        logoUrl: "",
+        logoUrl: "./1.png",
         emblemType: "avenida",
         synopsis: "O subúrbio mais famoso do Brasil invade o palco com energia eletrizante, reviravoltas e pura vibração! Uma abertura contagiante que mistura dramaticidade e ritmo pulsante para dar início à nossa programação.",
         cast: [
@@ -766,7 +760,7 @@
         novela: "Carrossel",
         subtitle: "Sessão Encantada • Escola Mundial",
         song: "Trilha Sonora Carrossel",
-        logoUrl: "",
+        logoUrl: "./2.png",
         emblemType: "carrossel",
         synopsis: "A doçura da infância e a magia da Escola Mundial ganham vida na ponta dos pés. Nossas pequenas bailarinas trazem leveza, amizade e sonhos coloridos em um capítulo repleto de ternura.",
         cast: [
@@ -780,7 +774,7 @@
         novela: "Caminho das Índias",
         subtitle: "Are Baba! • Paixão & Ritmo",
         song: "Você não vale nada",
-        logoUrl: "",
+        logoUrl: "./3.png",
         emblemType: "indias",
         synopsis: "Quando o tempero envolvente do Oriente encontra o balanço irresistível do forró, nasce um capítulo inesquecível! Giros marcados, cumplicidade e muita personalidade tomam conta da cena.",
         cast: [
@@ -801,7 +795,7 @@
         novela: "Explode Coração",
         subtitle: "Fogo, Paixão & Liberdade",
         song: "Sandra Rosa Madalena",
-        logoUrl: "",
+        logoUrl: "./4.png",
         emblemType: "cigana",
         synopsis: "O magnetismo das saias rodadas, o brilho do ouro e a força da tradição cigana celebram o amor livre e intenso que marcou época na teledramaturgia brasileira.",
         cast: [
@@ -815,7 +809,7 @@
         novela: "Rainha da Sucata",
         subtitle: "Clássico dos Anos 90 • Puro Glamour",
         song: "Me chama que eu vou",
-        logoUrl: "",
+        logoUrl: "./5.png",
         emblemType: "sucata",
         synopsis: "Da energia vibrante da Avenida Paulista direto para o Cine Teatro Recreio! Cintura solta, alegria contagiante e o espírito exuberante de Maria do Carmo em uma coreografia cheia de atitude.",
         cast: [
@@ -834,7 +828,7 @@
         novela: "A Força do Querer",
         subtitle: "Orgulho do Norte • Ritmo das Águas",
         song: "Curió do Bico Doce",
-        logoUrl: "",
+        logoUrl: "./6.png",
         emblemType: "forca",
         synopsis: "A força da natureza amazônica e o balanço ancestral do carimbó celebram nossas raízes nortistas com cores vivas, saias floridas e energia que faz o teatro pulsar.",
         cast: [
@@ -848,7 +842,7 @@
         novela: "Por Amor",
         subtitle: "Drama & Elegância • Manoel Carlos",
         song: "Pout-porri (Palpite)",
-        logoUrl: "",
+        logoUrl: "./7.png",
         emblemType: "poramor",
         synopsis: "Sentimentos à flor da pele, escolhas difíceis e a sofisticação do West Coast Swing traduzem em movimento os laços profundos e inesquecíveis de uma das maiores histórias da TV.",
         cast: [
@@ -865,7 +859,7 @@
         novela: "Sítio do Picapau Amarelo",
         subtitle: "Fantasia & Pó de Pirlimpimpim",
         song: "Trilha Sonora Carrossel",
-        logoUrl: "",
+        logoUrl: "./8.png",
         emblemType: "sitio",
         synopsis: "Com uma pitada de pó de pirlimpimpim, nossas bailarinas baby abrem as porteiras da imaginação! Um capítulo encantador onde a inocência e a magia da literatura brasileira brilham no palco.",
         cast: [
@@ -879,7 +873,7 @@
         novela: "Rebelde",
         subtitle: "Elite Way School • Y Soy Rebelde!",
         song: "Um poco de tu amor",
-        logoUrl: "",
+        logoUrl: "./9.png",
         emblemType: "rebelde",
         synopsis: "Gravatas vermelhas, corações apaixonados e a nostalgia de uma geração inteira! A sensualidade envolvente da bachata dá um novo ritmo aos dramas e romances do Elite Way School.",
         cast: [
@@ -898,7 +892,7 @@
         novela: "O Clone",
         subtitle: "Inshallah! • Mistério entre Dois Mundos",
         song: "Azez Alaya",
-        logoUrl: "",
+        logoUrl: "./10.png",
         emblemType: "clone",
         synopsis: "Entre os véus do Marrocos e as areias do tempo, cada ondulação conta uma história de amor eterno e destino. Um espetáculo hipnotizante de técnica, mistério e brilho dourado.",
         cast: [
@@ -916,7 +910,7 @@
         novela: "Mar do Sertão",
         subtitle: "Poesia Nordestina • Sol & Esperança",
         song: "Sobradinho",
-        logoUrl: "",
+        logoUrl: "./11.png",
         emblemType: "sertao",
         synopsis: "A força do povo sertanejo, a poesia das águas e a esperança que brota da terra ganham vida em um forró emocionante, cheio de calor humano e expressividade.",
         cast: [
@@ -935,7 +929,7 @@
         novela: "Paraíso",
         subtitle: "Romance Sertanejo • Encontros da Alma",
         song: "Deus e eu no sertão",
-        logoUrl: "",
+        logoUrl: "./12.png",
         emblemType: "paraiso",
         synopsis: "No abraço sereno do bolero, o amor encontra seu refúgio. Uma interpretação sensível e poética sobre sintonia, entrega e a beleza simples das grandes paixões.",
         cast: [
@@ -950,7 +944,7 @@
         novela: "Carinha de Anjo",
         subtitle: "Ternura & Luz • Doce Harmonia",
         song: "Trilha Sonora Carinha de Anjo",
-        logoUrl: "",
+        logoUrl: "./13.png",
         emblemType: "carinha",
         synopsis: "Com delicadeza angelical e sorrisos iluminados, o Pré Ballet encanta a plateia em um capítulo repleto de graça, musicalidade e pureza cênica.",
         cast: [
@@ -964,7 +958,7 @@
         novela: "Maria do Bairro",
         subtitle: "Dramalhão Mexicano • Pura Paixão Latina!",
         song: "Maria do Bairro",
-        logoUrl: "",
+        logoUrl: "./14.png",
         emblemType: "maria",
         synopsis: "A rainha das novelas mexicanas chega com toda a intensidade latina! Os professores do No Compasso entregam velocidade, precisão e muito tempero em uma salsa arrebatadora.",
         cast: [
@@ -983,7 +977,7 @@
         novela: "Salve Jorge",
         subtitle: "Coragem & Superação • Além das Fronteiras",
         song: "93 Millions",
-        logoUrl: "",
+        logoUrl: "./15.png",
         emblemType: "salvejorge",
         synopsis: "A distância, a saudade e a força inabalável de quem luta pelo próprio destino. O Ballet Adulto emociona com linhas expressivas e interpretação dramática de tirar o fôlego.",
         cast: [
@@ -998,7 +992,7 @@
         novela: "Caminho das Índias",
         subtitle: "Reprise Especial • Ritmo Envolvente",
         song: "Você não vale nada",
-        logoUrl: "",
+        logoUrl: "./16.png",
         emblemType: "indias",
         synopsis: "O sucesso da novela ganha uma nova leitura cheia de sintonia e carisma! Nossos convidados especiais trazem elegância, conexão e alegria para aquecer a reta final do espetáculo.",
         cast: [
@@ -1013,7 +1007,7 @@
         novela: "Três Graças + Volta por Cima",
         subtitle: "Último Capítulo • Gran Finale de Gala!",
         song: "Pout-porri (Jura) + Volta por Cima",
-        logoUrl: "",
+        logoUrl: "./17.png",
         emblemType: "finale",
         synopsis: "Todo grande folhetim merece um final apoteótico! O samba celebra a superação, o recomeço e a alegria de viver em um encerramento vibrante que levanta o público do Cine Teatro Recreio.",
         cast: [
@@ -1031,8 +1025,6 @@
      * ==========================================================================
      * 2. DIREÇÃO & COREÓGRAFOS (PRONTO PARA INSERIR FOTOS REAIS)
      * ==========================================================================
-     * Basta preencher `photoUrl` com o caminho da foto (ex: "./assets/fotos/andre.jpg")
-     * para substituir o monograma dourado pela fotografia oficial.
      */
     const CHOREOGRAPHERS = [
       {
@@ -1087,7 +1079,7 @@
 
     /**
      * ==========================================================================
-     * 3. GERADOR DE EMBLEMAS VETORIAIS EXCLUSIVOS PARA CADA NOVELA
+     * 3. GERADOR DE EMBLEMAS VETORIAIS EXCLUSIVOS PARA CADA NOVELA (FALLBACK)
      * ==========================================================================
      */
     function getNovelaEmblemSVG(type, novelaTitle) {
@@ -1236,7 +1228,6 @@
 
     /**
      * Gera um clique sutil de controle remoto + rápido chiado analógico de sintonia
-     * sem depender de nenhum arquivo de áudio externo.
      */
     function playChannelZapSound(isPowerOn = false) {
       if (!state.soundEnabled) return;
@@ -1299,7 +1290,6 @@
         return;
       }
 
-      // Pisca o LED vermelho do controle remoto
       if (led) {
         led.classList.remove("bg-red-800");
         led.classList.add("bg-red-500", "shadow-[0_0_10px_#ef4444]");
@@ -1316,7 +1306,7 @@
 
       let frameId = null;
       const startTime = performance.now();
-      const duration = 240; // ~250ms de chuvisco analógico
+      const duration = 240;
 
       function drawNoise(now) {
         const elapsed = now - startTime;
@@ -1344,7 +1334,7 @@
 
     /**
      * ==========================================================================
-     * 6. NOTIFICAÇÃO TOAST (ZERO ALERT())
+     * 6. NOTIFICAÇÃO TOAST
      * ==========================================================================
      */
     let toastTimer = null;
@@ -1376,24 +1366,22 @@
       const total = CHAPTERS.length;
       const animatedWrapper = document.getElementById("chapter-animated-content");
 
-      // Reinicia animação suave de entrada
       animatedWrapper.classList.remove("animate-channel-in");
       void animatedWrapper.offsetWidth;
       animatedWrapper.classList.add("animate-channel-in");
 
-      // Atualiza cabeçalho de canal
       document.getElementById("channel-badge").textContent = `CANAL ${chapter.channel}`;
       document.getElementById("chapter-counter").textContent = `CAPÍTULO ${chapter.channel} DE ${String(total).padStart(2, "0")}`;
       document.getElementById("return-cap-num").textContent = chapter.channel;
 
-      // Emblema / Logo da Novela (Suporta PNG real com fallback SVG exclusivo)
+      // Logo oficial (1.png a 17.png) com fallback automático para SVG
       const logoContainer = document.getElementById("novela-logo-container");
       if (chapter.logoUrl && chapter.logoUrl.trim() !== "") {
         logoContainer.innerHTML = `
           <img
             src="${chapter.logoUrl}"
             alt="Logo da novela ${chapter.novela}"
-            class="max-h-24 w-auto object-contain mx-auto drop-shadow-[0_4px_14px_rgba(212,175,55,0.4)]"
+            class="max-h-28 sm:max-h-32 max-w-[260px] w-auto object-contain mx-auto drop-shadow-[0_4px_16px_rgba(212,175,55,0.45)]"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
           />
           <div style="display:none;">${getNovelaEmblemSVG(chapter.emblemType, chapter.novela)}</div>
@@ -1402,14 +1390,13 @@
         logoContainer.innerHTML = getNovelaEmblemSVG(chapter.emblemType, chapter.novela);
       }
 
-      // Estilo, Título, Subtítulo, Música e Sinopse
       document.getElementById("chapter-style-badge").textContent = chapter.style;
       document.getElementById("chapter-novela-title").textContent = chapter.novela;
       document.getElementById("chapter-subtitle").textContent = chapter.subtitle;
       document.getElementById("chapter-song").textContent = `"${chapter.song}"`;
       document.getElementById("chapter-synopsis").textContent = chapter.synopsis;
 
-      // Renderiza Elenco em Cena
+      // Elenco em Cena
       const castListEl = document.getElementById("chapter-cast-list");
       const castCountEl = document.getElementById("cast-count-label");
       castCountEl.textContent = chapter.cast.length === 1 && chapter.cast[0].role === "Elenco"
@@ -1445,7 +1432,7 @@
         `;
       }).join("");
 
-      // Renderiza Chamada "Cenas do Próximo Capítulo..."
+      // Chamada "Cenas do Próximo Capítulo..."
       const teaserEl = document.getElementById("next-chapter-teaser");
       if (index < total - 1) {
         const nextChap = CHAPTERS[index + 1];
@@ -1472,7 +1459,6 @@
           </div>
         `;
       } else {
-        // Último Capítulo (17)
         teaserEl.innerHTML = `
           <div class="bg-gradient-to-r from-marsala to-graphite-dark border border-gold-light/50 rounded-2xl p-3.5 text-center space-y-2.5">
             <p class="text-[10px] uppercase tracking-[0.24em] text-gold-light font-extrabold">
@@ -1501,13 +1487,12 @@
         `;
       }
 
-      // Atualiza destaque na Grade de Canais
       renderChannelGuide();
     }
 
     /**
      * ==========================================================================
-     * 8. NAVEGAÇÃO ENTRE CAPÍTULOS & TROCA DE VISÃO (TV vs FICHA TÉCNICA)
+     * 8. NAVEGAÇÃO ENTRE CAPÍTULOS & TROCA DE VISÃO
      * ==========================================================================
      */
     function goToChapter(newIndex) {
@@ -1749,7 +1734,7 @@
 
     /**
      * ==========================================================================
-     * 11. COMPARTILHAMENTO SEGURO (SEM NAVIGATOR.CLIPBOARD QUE FALHA EM IFRAME)
+     * 11. COMPARTILHAMENTO SEGURO
      * ==========================================================================
      */
     function copyProgramLink() {
@@ -1771,11 +1756,10 @@
 
     /**
      * ==========================================================================
-     * 12. INICIALIZAÇÃO & EVENT LISTENERS (TOQUE, SWIPE, TECLADO & CONTROLE)
+     * 12. INICIALIZAÇÃO & EVENT LISTENERS
      * ==========================================================================
      */
     window.addEventListener("DOMContentLoaded", () => {
-      // Botão Ligar TV / Entrar no Ar
       document.getElementById("btn-power-on").addEventListener("click", () => {
         playChannelZapSound(true);
         triggerTVStaticEffect(() => {
@@ -1788,7 +1772,6 @@
         });
       });
 
-      // Botões do Controle Remoto
       document.getElementById("btn-prev-chapter").addEventListener("click", () => {
         goToChapter(state.currentIndex - 1);
       });
@@ -1800,14 +1783,12 @@
       document.getElementById("btn-open-guide").addEventListener("click", openChannelGuide);
       document.getElementById("btn-close-guide").addEventListener("click", closeChannelGuide);
 
-      // Fechar modal clicando fora do painel
       document.getElementById("channel-guide-modal").addEventListener("click", e => {
         if (e.target.id === "channel-guide-modal") {
           closeChannelGuide();
         }
       });
 
-      // Alternar Ficha Técnica
       document.getElementById("btn-toggle-credits").addEventListener("click", () => {
         switchView(state.activeView === "credits" ? "chapters" : "credits");
       });
@@ -1816,7 +1797,6 @@
         switchView("chapters");
       });
 
-      // Toggle de Som
       document.getElementById("btn-toggle-sound").addEventListener("click", () => {
         state.soundEnabled = !state.soundEnabled;
         document.getElementById("icon-sound-on").classList.toggle("hidden", !state.soundEnabled);
@@ -1824,10 +1804,8 @@
         showToast(state.soundEnabled ? "Som de sintonia da TV ativado" : "Som de sintonia silenciado");
       });
 
-      // Compartilhar
       document.getElementById("btn-share").addEventListener("click", copyProgramLink);
 
-      // Busca e filtros na Ficha Técnica
       document.getElementById("cast-search-input").addEventListener("input", e => {
         state.castSearch = e.target.value;
         renderFullCastList();
@@ -1846,7 +1824,6 @@
         });
       });
 
-      // Suporte a Gestos Touch (Swipe Horizontal na Tela da Novela)
       const chapterCard = document.getElementById("chapter-card");
       let touchStartX = 0;
       let touchStartY = 0;
@@ -1869,7 +1846,6 @@
         }
       }, { passive: true });
 
-      // Suporte a Teclado (Setas Esquerda/Direita)
       document.addEventListener("keydown", e => {
         if (document.getElementById("main-app").classList.contains("hidden")) return;
         if (document.activeElement && document.activeElement.tagName === "INPUT") return;
