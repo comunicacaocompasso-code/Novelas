@@ -1759,7 +1759,20 @@
      * 12. INICIALIZAÇÃO & EVENT LISTENERS
      * ==========================================================================
      */
+    function preloadAllLogos() {
+      CHAPTERS.forEach((chap, idx) => {
+        if (!chap.logoUrl) return;
+        // Baixa os 4 primeiros capítulos imediatamente e escalona o restante
+        setTimeout(() => {
+          const img = new Image();
+          img.src = chap.logoUrl;
+        }, idx < 4 ? 0 : idx * 150);
+      });
+    }
+
     window.addEventListener("DOMContentLoaded", () => {
+      preloadAllLogos();
+
       document.getElementById("btn-power-on").addEventListener("click", () => {
         playChannelZapSound(true);
         triggerTVStaticEffect(() => {
